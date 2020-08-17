@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <img class="logo" src="..\Images\logo.png">
@@ -31,7 +32,7 @@ nav {
 	font-size: 0;
 }
 nav a {
-    margin-top: 5px;
+    margin-top: 10px;
 	line-height: 50px;
 	height: 100%;
 	font-size: 15px;
@@ -70,29 +71,29 @@ a:nth-child(5) {
 	width: 120px;
 }
 nav .start-home, a:nth-child(1):hover~.animation {
-	width: 100px;
-	left: 0;
+	width: 110px;
+	left: 10px;
 	background-color: #1abc9c;
 
 }
 nav .start-about, a:nth-child(2):hover~.animation {
 	width: 110px;
-	left: 100px;
+	left: 120px;
 	background-color: #e74c3c;
 }
 nav .start-blog, a:nth-child(3):hover~.animation {
 	width: 120px;
-	left: 210px;
+	left: 240px;
 	background-color: #3498db;
 }
 nav .start-portefolio, a:nth-child(4):hover~.animation {
 	width: 120px;
-	left: 330px;
+	left: 370px;
 	background-color: #9b59b6;
 }
 nav .start-contact, a:nth-child(5):hover~.animation {
 	width: 120px;
-	left: 470px;
+	left: 780px;
 	background-color: #e67e22;
 }
 
@@ -126,12 +127,33 @@ span {
 }
 .profile{
     position: absolute;
-    right:30px;
+    right:5px;
 }
 .logo{
     position: absolute;
     height: 70px;
     width: 80px;
-    left: 200px;
+    left: 230px;
+}
+@media only screen and (max-width: 732px) {
+body {
+    background-color: white;
+  }
+nav{
+    position: relative;
+	width: 300px;
+	height: 70px;
+	background-color: black;
+    left:85px;
+	
+	font-size: 0;
+} 
+nav a,nav .animation{
+    visibility: hidden;
+} 
+.logo{
+    
+    left: 14px;
+}
 }
 </style>
