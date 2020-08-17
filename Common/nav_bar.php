@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <div class="nav">
 <img class="logo" src="..\Images\logo.png">
 <nav>
     
@@ -17,7 +18,7 @@
     
 	<div class="animation start-home"></div>
 </nav>
-
+    </div>
 </body>
 </html>
 <style>
@@ -135,13 +136,13 @@ span {
     width: 80px;
     left: 230px;
 }
-@media only screen and (max-width: 732px) {
+@media only screen and (max-width: 700px) {
 body {
     background-color: white;
   }
 nav{
     position: relative;
-	width: 300px;
+	width: 250px;
 	height: 70px;
 	background-color: black;
     left:85px;
