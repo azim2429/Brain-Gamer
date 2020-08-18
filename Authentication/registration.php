@@ -5,66 +5,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Registration Page</title>
 </head>
 
 <body>
   <div class="login-box">
-    <h2>LOGIN</h2>
-    
+    <h2>Registration</h2>
     <form>
+
       <div class="user-box">
-        <input type="text" name="" required="">
-        
+
+        <input type="text" name="first name" id="first name" required="">
+        <label>First Name</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
-        
+        <input type="text" name="last name" id="last name" required="">
+        <label>Last Name</label>
+
       </div>
-      
-        <a style="cursor: pointer;margin-right:30px;" href="registration.php">
-        <label style="cursor: pointer;">New User?</label>
-        </a>
-      
+
+      <div class="user-box">
+        <input type="email" name="email" id="email" required="">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="date" name="birth date" id="birth date" required="">
+
+      </div>
+      <!-- <div class="user-box">
+      <input type="text" name="username" id="username" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" id="password" required="">
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="cpassword" id="cpassword" required="">
+      <label>Confirm Password</label>
+    </div> -->
       <a href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        Login
+        Submit
       </a>
     </form>
-  </div> 
+  </div>
   <div class="login-box">
-    <h2>LOGIN</h2>
+    <h2>Registration</h2>
     <form>
       <div class="user-box">
-        <input type="text" name="" required="">
-        <label>Username</label>
+        <input type="text" name="first name" id="first name" required="">
+        <label>First Name</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
-        <label>Password</label>
+        <input type="text" name="last name" id="last name" required="">
+        <label>Last Name</label>
       </div>
-      
-        <a style="cursor: pointer;margin-right:30px;" href="registration.php">
-        <label style="cursor: pointer;">New User?</label>
-        </a>
-      
+      <div class="user-box">
+        <input type="email" name="email" id="email" required="">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="date" name="birth date" id="birth date" required="">
+        <label>Date of Birth</label>
+      </div>
+
+      <!-- <div class="user-box">
+      <input type="text" name="" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="" required="">
+      <label>Password</label>
+    </div> -->
       <a href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        Login
+        Submit
       </a>
     </form>
-  </div> 
-  
+  </div>
+
 </body>
 
 </html>
-
 <style>
   html {
     height: 100%;
@@ -75,6 +104,14 @@
     padding: 0;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
+  }
+
+  input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+  }
+
+  input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
   }
 
   .login-box {
@@ -88,6 +125,7 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
+    display: block;
   }
 
   .login-box h2 {
@@ -243,7 +281,7 @@
       bottom: 100%;
     }
   }
-  
+
   @media only screen and (max-width: 600px) {
     body {
 
