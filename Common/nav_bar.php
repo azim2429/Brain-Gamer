@@ -200,18 +200,34 @@ input{
     width: 100%;
     
     
-   
+    text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	cursor: pointer;
     border-color: white;
     text-align: center;
     
 }
+@keyframes fadeInOut{
+    from{
+        opacity: 0;
+
+    }
+    to{
+        opacity: 1;
+    }
+}
 .nav-2 a{
    
-    padding-top: 25px;
+    
     color: white;
-    
-    
-   
+    animation-timing-function: linear;
+    text-decoration: none;
+	color: white;
+	cursor: pointer;
+    animation-name: fadeInOut;
+    animation-duration: 1s;
+    animation-timing-function:linear;
 
 }
 .nav-2 .profile{
@@ -252,7 +268,7 @@ body{
 background-color: white;
 }
 .nav-2{
-    display: none;
+    visibility: hidden;
 }
 .logo{
     left:10px;
@@ -265,10 +281,10 @@ nav{
 <script>
     function myFunction() {
   var x = document.getElementById("nav-2");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  if (x.style.display === "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 }
 </script>
