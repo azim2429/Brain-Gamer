@@ -39,7 +39,7 @@
         <a href="#">Your Stats</a><br><br>
         <a href="#">Insights</a><br><br>
 
-        <a class="profile" href="#">Profile</a>
+        <a  href="#">Profile</a>
     </div>
 
 </body>
@@ -229,14 +229,15 @@
 
         background-color: black;
         width: 100%;
-
-
+          
+        
         text-decoration: none;
         text-transform: uppercase;
         color: white;
         cursor: pointer;
         border-color: white;
         text-align: center;
+        padding-bottom: 20px;;
 
     }
 
@@ -254,14 +255,15 @@
     .nav-2 a {
 
 
-        color: white;
+        
         animation-timing-function: linear;
         text-decoration: none;
-        color: white;
+        color: #3498db;
         cursor: pointer;
         animation-name: fadeInOut;
         animation-duration: 1s;
         animation-timing-function: linear;
+
 
     }
 

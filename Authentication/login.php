@@ -60,7 +60,7 @@
       </a>
     </form>
   </div> 
-  <img src="..\Images\logo.png">
+  
 </body>
 
 </html>
@@ -243,14 +243,7 @@
       bottom: 100%;
     }
   }
-  img{
-    width: 7%;
-    height: 10%;
-    position: relative;
-    left:575px;
-    top: 160px;
-  }
-
+  
   @media only screen and (max-width: 600px) {
     body {
 
