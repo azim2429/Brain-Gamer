@@ -16,17 +16,17 @@
       <div class="user-box">
 
         <input type="text" name="first name" id="first name" required="">
-        <label>First Name</label>
+        <label></label>
       </div>
       <div class="user-box">
         <input type="text" name="last name" id="last name" required="">
-        <label>Last Name</label>
+        <label></label>
 
       </div>
 
       <div class="user-box">
         <input type="email" name="email" id="email" required="">
-        <label>Email</label>
+        <label></label>
       </div>
       <div class="user-box">
         <input type="date" name="birth date" id="birth date" required="">
