@@ -4,7 +4,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 function flipCard() {
   if (lockBoard) return;
-  if (this === firstCard) return;
+  if (this === firstCard) return;  //this has value of .memory-card
   this.classList.add('flip');
   if (!hasFlippedCard) {
     // first click
