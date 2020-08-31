@@ -260,9 +260,10 @@
     }
   }
 
-  @media (max-width: 1200px) and (min-width: 800px) {
+  @media (max-width: 1200px) and (min-width: 700px) {
     .login-box {
       width: 400px;
+      
     }
   }
 </style>
