@@ -13,7 +13,7 @@
 
 <body>
     <?php include "..\Common\av_bar.php" ?>
-    <?php include "..\Common\preloader.php" ?>
+     
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
             <h1 style="font-size: 4rem;">BRAIN GAMES</h1>
