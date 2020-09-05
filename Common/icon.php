@@ -1,1 +1,1 @@
-<link rel="icon" type="image/png" href="..\Images\circle-cropped.png"/>
+<link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
