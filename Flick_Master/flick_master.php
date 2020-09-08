@@ -78,6 +78,9 @@
     margin:0;
     padding:0;
 }
+a{
+    font-size:20px;
+}
 .rotate0{
     transform: rotateZ(0deg);
 }
