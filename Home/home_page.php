@@ -14,10 +14,11 @@
 <body>
     <?php include "..\Common\av_bar.php" ?>
     <?php include "..\Common\preloader.php" ?>
+     
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
             <h1 style="font-size: 4rem;">BRAIN GAMES</h1>
-            <h3 style="font-family: times;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
+            <h3 style="font-family: times;">We bring better brain training to the world</h3>
             <div class="mode-1">
                 <img style="cursor:pointer;margin:20px;width:10vh" onclick="change_mode()" id="logo_light" src='..\Images\day_mode.png' alt="Logo Image">
                 <img style="cursor:pointer;margin:20px;width:10vh" id="logo_dark" onclick="change_mode()" src='..\Images\ni8_mode.png' alt="Logo Image">
@@ -31,20 +32,20 @@
         <h1 id="header" style="color: black;margin:20px;">Our Featuered Games</h1>
         <section id="features" class="features">
             <div class="feature-container">
-                <img style="position: relative;" src="..\Images\download.png">
-                <h2 id="sub-head" style="font-family: cursive;">Category-1</h2>
+                <img style="position: relative;height:55vh" src="..\Images\speed.jpg">
+                <h2 id="sub-head" style="font-family: cursive;">Speed</h2>
                 <p id="sub-head1" style="font-family: arial;color:black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>
             <div class="feature-container">
-                <img src="..\Images\download.png">
-                <h2 id="sub-head2" style="font-family: cursive;">Category-2</h2>
+                <img style="height:55vh" src="..\Images\mem.png">
+                <h2 id="sub-head2" style="font-family: cursive;">Memory</h2>
                 <p id="sub-head3" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>
             <div class="feature-container">
-                <img src="..\Images\download.png">
-                <h2 id="sub-head4" style="font-family: cursive;">Category-3</h2>
+                <img src="..\Images\atten.png">
+                <h2 id="sub-head4" style="font-family: cursive;">Attention</h2>
                 <p id="sub-head5" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>

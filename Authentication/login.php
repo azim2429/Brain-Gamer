@@ -146,7 +146,7 @@
     letter-spacing: 4px
   }
 
-  .login-box a:hover {
+  /* .login-box a:hover {
     background: #3498db;
     color: #fff;
     border-radius: 5px;
@@ -154,7 +154,7 @@
       0 0 25px #3498db,
       0 0 50px #3498db,
       0 0 100px #3498db;
-  }
+  } */
 
   .login-box a span {
     position: absolute;
@@ -169,7 +169,7 @@
     background: linear-gradient(90deg, transparent, #3498db);
     animation: btn-anim1 1s linear infinite;
   }
-
+/* 
   @keyframes btn-anim1 {
     0% {
       left: -100%;
@@ -179,7 +179,7 @@
     100% {
       left: 100%;
     }
-  }
+  } */
 
   .login-box a span:nth-child(2) {
     top: -100%;
@@ -191,7 +191,7 @@
     animation-delay: .25s
   }
 
-  @keyframes btn-anim2 {
+  /* @keyframes btn-anim2 {
     0% {
       top: -100%;
     }
@@ -200,7 +200,7 @@
     100% {
       top: 100%;
     }
-  }
+  } */
 
   .login-box a span:nth-child(3) {
     bottom: 0;
@@ -212,7 +212,7 @@
     animation-delay: .5s
   }
 
-  @keyframes btn-anim3 {
+  /* @keyframes btn-anim3 {
     0% {
       right: -100%;
     }
@@ -221,7 +221,7 @@
     100% {
       right: 100%;
     }
-  }
+  } */
 
   .login-box a span:nth-child(4) {
     bottom: -100%;
@@ -233,7 +233,7 @@
     animation-delay: .75s
   }
 
-  @keyframes btn-anim4 {
+  /* @keyframes btn-anim4 {
     0% {
       bottom: -100%;
     }
@@ -243,7 +243,7 @@
       bottom: 100%;
     }
   }
-  
+   */
   @media only screen and (max-width: 600px) {
     body {
 
