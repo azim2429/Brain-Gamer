@@ -13,7 +13,7 @@
        <span></span>    
   </div>
   <div class="gameover">GAME OVER</div>
-  <h1>KILL THE BIRDS <span>(shoot the birds)</span></h1>
+  <h1>SHOOT THE BIRDS <span></span></h1>
   <!-- <h2>PURE CSS GAME - NO JS!</h2> -->
   <input class="input-circle input-circle1" type="radio" id="circle1" >
  <input class="input-circle input-circle2" type="radio" id="circle2" >
