@@ -21,10 +21,10 @@
         <ul class="nav-links">
             <li><a href="../Home/home_page.php">Home</a></li>
             <li><a href="../Game/index.php">Our Games</a></li>
-            <li><a href="">Your Stats</a></li>
+            <li><a href="..\Authentication\registration1.php">Your Stats</a></li>
             <li><a href="#">Insights</a></li>
             <li><button class="login-button" href="#">Login</button></li>
-            <li><button class="join-button" href="#">Join</button></li>
+            <a><li><button class="join-button" href="">Join</button></li></a>
         </ul>
         
     </nav>

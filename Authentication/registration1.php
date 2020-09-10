@@ -30,6 +30,13 @@
     
   </div>
 </div>
+<div class="image">
+<div class="photo">
+  <img style="border-radius: 50%;margin:3rem" src="../Images/akhil.jpg">
+  <input type="submit" value="Upload Photo" class="submit">
+
+</div>
+</div>
 </body>
 
 <script type="text/javascript">
@@ -155,7 +162,7 @@ input[type=date]:focus::-webkit-datetime-edit {
     color: black !important;
   }
 
-.login {
+.login{
   width: 400px;
   height: 680px;
   border: 1px solid #CCC;
@@ -201,5 +208,28 @@ input[type=date]:focus::-webkit-datetime-edit {
   font-size: 15px;
   margin-top: 40px;
   font-weight: bold;
+}
+.image{
+  position: absolute;
+  top:1.1vh;
+  left:23.5vh;
+}
+.photo{
+  
+  width: 400px;
+  height: 680px;
+  border: 1px solid #CCC;
+  background: black;
+  background-size: cover;
+  margin: 0px auto;
+  border-radius: 3px;
+}
+.photo input.submit{
+  background: rgba(255,255,255,.9);
+  color: #444;
+  font-size: 15px;
+  margin: 18vh;
+  font-weight: bold;
+  padding: 1vh;
 }
 </style>

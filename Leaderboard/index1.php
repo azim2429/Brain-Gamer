@@ -11,7 +11,7 @@
 </head>
 <body>
 <?php include "..\Common\av_bar.php" ?>
-<div class="leaderboard">
+<div id="leaderboard" class="leaderboard">
   <header>
     <h1>Leader Board</h1>
     <div class="nav">
@@ -330,6 +330,7 @@
 <style>
   body{
     background: url('../Images/mario1.jpg');
+    overflow: hidden;
   }
   .leaderboard {
     max-width: 40rem;
@@ -337,9 +338,11 @@
     border-radius: 1rem;
     box-shadow: 2px 2px 16px 1px #aaa;
     font-family: sans-serif;
-    top:20vh;
+    top:15vh;
     left:60vh;
     margin-bottom: 2rem;
+    overflow-y: auto;
+height: 85vh;
   }
   
   a {
@@ -354,16 +357,16 @@
     text-transform: uppercase;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    height: 14rem;
+    height: 10rem;
     position: relative;
   }
   
   h1 {
     font-size: 3rem;
-    line-height: 3rem;
+    line-height: 1rem;
     position: absolute;
     margin-left: 8rem;
-    top: 4rem;
+    top: 3rem;
   }
   
   
@@ -408,7 +411,7 @@
     border-collapse: collapse;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    overflow: hidden;
+    overflow-y: auto;
   }
   
   thead {
@@ -417,12 +420,14 @@
     background-color: #1f232c;
     text-transform: uppercase;
   }
-  
   tbody .name {
     color: white;
     font-weight: bold;
+    
     font-size: 0.9rem;
+    
   }
+  
   
   tbody tr:nth-child(2n) {
     background-color: #1f232c;
@@ -475,6 +480,7 @@
   #attention{
     display: none;
   }
+  
   @media screen and (max-width: 720px){
     .leaderboard{
      left: 1vh;
@@ -502,7 +508,11 @@
     var a_attention = document.getElementById('a_attention');
     var attention = document.getElementById('attention');
     all_time.style.display = "none";
-    speed.style.display = "block";
+     $(document).ready(function () {
+    setTimeout(function(){
+        $('#speed').fadeIn(500);
+    }, 100);
+});
     memory.style.display = "none";
     $(a_speed).addClass("active");
     $(a_all_time).removeClass("active");
@@ -519,7 +529,11 @@
     var memory = document.getElementById('memory');
     var a_attention = document.getElementById('a_attention');
     var attention = document.getElementById('attention');
-    all_time.style.display = "block";
+    $(document).ready(function () {
+    setTimeout(function(){
+        $('#all_time').fadeIn(500);
+    }, 200);
+});
     speed.style.display = "none";
     memory.style.display = "none";
     $(a_all_time).addClass("active");
@@ -539,7 +553,11 @@
     var attention = document.getElementById('attention');
     all_time.style.display = "none";
     speed.style.display = "none";
-    memory.style.display = "block";
+    $(document).ready(function () {
+    setTimeout(function(){
+        $('#memory').fadeIn(500);
+    }, 200);
+});
     $(a_all_time).removeClass("active");
     $(a_speed).removeClass("active");
     $(a_memory).addClass("active");
@@ -561,7 +579,12 @@
     $(a_all_time).removeClass("active");
     $(a_speed).removeClass("active");
     $(a_memory).removeClass("active");
-    attention.style.display = "block";
+    $(document).ready(function () {
+    setTimeout(function(){
+        $('#attention').fadeIn(500);
+    }, 200);
+});
     $(a_attention).addClass("active");
     }
+   
 </script>
