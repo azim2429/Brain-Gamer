@@ -19,40 +19,40 @@
     
 	<h1 id="h1" class="h1" style="text-align: center;position:relative;top:19vh;">Our Latest Games</h1>
 	<div class="category">
-		<button href="something" id="button" class="button">Category-1</button>
-		<button href="something"id="button" id class="button">Category-1</button>
-		<button href="something" id="button" class="button">Category-1</button>
-		<button href="something" id="button" class="button">Category-1</button>
+		<button href="something" id="button" class="button">Speed</button>
+		<button href="something"id="button" id class="button">Memory</button>
+		<button href="something" id="button" class="button">Attention</button>
+		<button href="something" id="button" class="button">Others</button>
 		<input href="something" type="search" id="button" placeholder="Seacrh Games..." class="search"><i style="color:#3498db;font-size:4.5vh" class="fa fa-search"></i></input>
 
 	</div>
 	<div class="grid">
 		<figure class="effect-duke">
-			<img src="../Images/COC.jpg" alt="img27" />
+			<img src="../Images/mole.svg" class="mole" />
 			<figcaption>
-				<h2>Clash<span> </span> <span>Clans</span></h2>
-				<p>Small Description About the game.</p>
+				<h2>Whack a <span> </span> <span>Mole!</span></h2>
+				<p>Hit some bunnies popping out <br>from their holes</p>
 				
-				<label><a class="a" href="s_name/index.php">Play Now</a></label>
+				<label><a class="a" href="../Whack A Mole!/index.php">Play Now</a></label>
 				
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
-			<img src="../Images/cr.png" alt="img27" />
+			<img style="height: 75%;" src="../Images/flick_cover.png" alt="img27" />
 			<figcaption>
-				<h2>Clash <span>Royale</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
+				<h2>Flick <span>Master</span></h2>
+				<p>Match the arrows as you see the color of the arrows</p>
+				<label><a class="a" href="../Flick_Master/flick_master.php">Play Now</a></label>
 
 
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
-			<img src="../Images/hay-day.jfif" />
+			<img src="../Images/word_cover.png" />
 			<figcaption>
-				<h2>Hay <span>Day</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
+				<h2>Word  <span>Memory</span></h2>
+				<p>Memorize the words and write them after 20s</p>
+				<label><a class="a" href="../Word_Memory/word_memory.php">Play Now</a></label>
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
@@ -116,6 +116,9 @@
 		
 	}
 	.a{
+		color:white;
+	}
+	.a:hover,lablel{
 		color:red;
 	}
 
@@ -150,15 +153,19 @@
 		width: 80%;
         text-align: center;
     }
+	
 
 	.grid figure img {
 		position: relative;
 		display: block;
 		min-height: 100%;
+		
 		max-width: 100%;
 		opacity: 0.8;
 	}
-
+    .mole{
+		width: 100%;
+	}
 
 	.grid figure figcaption {
 		padding: 2em;
