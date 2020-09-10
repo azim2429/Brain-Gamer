@@ -18,7 +18,7 @@
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
             <h1 style="font-size: 4rem;">BRAIN GAMES</h1>
-            <h3 style="font-family: times;">We bring better brain training to the world</h3>
+            <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
             <div class="mode-1">
                 <img style="cursor:pointer;margin:20px;width:10vh" onclick="change_mode()" id="logo_light" src='..\Images\day_mode.png' alt="Logo Image">
                 <img style="cursor:pointer;margin:20px;width:10vh" id="logo_dark" onclick="change_mode()" src='..\Images\ni8_mode.png' alt="Logo Image">
@@ -61,7 +61,7 @@
 
                 <h1 class="header_leader" style="color:#fa5655">LEADERBOARD</h1>
                 <p id="content_leader" class="content_leader">Join The Global Player and View Your Standings in the Leaderboard</p>
-                <a style="color:#f8b500;text-decoration:none;" href="#">
+                <a style="color:#f8b500;text-decoration:none;" href="../Leaderboard/index1.php">
                     <button class="button_leader">View Leaderboard</button></a>
             </div>
         </div>

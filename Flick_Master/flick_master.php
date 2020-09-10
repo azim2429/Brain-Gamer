@@ -66,7 +66,7 @@
     <div class="play">
     <h1 id="h1" style="font-family: cursive;color:black">Flicker Master</h1>
     <hr><br>
-    <p id="p" style="color: black;">This game will help you to improve your Attention Span.</p>
+    <p id="p" style="color: black;">This game will help you to improve your Attention Span.</p><br>
     <p id="p1" style="color: black;">Understanding attention helps us identify problems with multi-tasking,<br>  allows us the opportunity to set up an optimal learning environment.</p>
   </div>
    
@@ -126,7 +126,7 @@ header{
     
     position: absolute;
     text-align: center;
-    z-index: 3;
+    
     width:100%;
     height:80%;
     
@@ -342,7 +342,7 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
             // open score page
             myArrow.style.display = 'none'
             myGameOver.style.display = "block";
-            points = correct * 3;
+            points = parseInt(correct * 2.5);
             myPoints.innerHTML = "Points:    " + points;
             myScore.innerHTML = "Score:    " + correct;
             

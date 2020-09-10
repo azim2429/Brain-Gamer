@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Memory</title>
+    <title>Word Memory</title>
+    <link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
     <style media="screen">
-        
-
         #showWords {
             font-size: 28px;
             width: 200px;
@@ -82,7 +81,7 @@
             position: relative;
             top: 22vh;
             left: 21vh;
-            background: url('../../Images/game_back2.jpg');
+            background: url('../Images/gaame.jpg');
             box-shadow: 5px 5px 10px gray;
         }
 
@@ -96,6 +95,7 @@
             text-align: center;
             font-size: 22px;
             font-weight: bolder;
+            color: white;
         }
 
         .button {
@@ -129,70 +129,83 @@
         #h_play {
             display: none;
         }
-        #h_play1{
+
+        #h_play1 {
             display: block;
         }
-        #h_play2{
-            display: none;
-        }
-        #h_play3{
-            display: none;
-        }
-        .play {
-    position: absolute;
-    top: 19%;
-    right: 1%;
-    padding: 1rem;
 
-  }
-  @media screen and (max-width: 720px) {
-      .body{
-        width: 95%;
-        left:1vh;
-      }
-      #start_game{
-          left: 5vh;
-          width: 95%;
-      }
-      .play {
-      top:100%;
-      padding: 2rem;
-    }
-  }
+        #h_play2 {
+            display: none;
+        }
+
+        #h_play3 {
+            display: none;
+        }
+
+        .play {
+            position: absolute;
+            top: 19%;
+            right: 1%;
+            padding: 1rem;
+
+        }
+        a{
+            color: white;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 720px) {
+            .body {
+                width: 95%;
+                left: 1vh;
+            }
+
+            #start_game {
+                left: 5vh;
+                width: 95%;
+            }
+
+            .play {
+                top: 100%;
+                padding: 2rem;
+            }
+        }
     </style>
 </head>
 
 <body>
-<?php include "..\..\Common\av_bar.php" ?>
+    <?php include "..\Common\av_bar.php" ?>
+    <a class="a_game" href="../Game/index.php">
+        <i style="position:absolute;top:16%;left:10%;color:black" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
     <div class="body">
         <div class="h_play" id='h_play'>
-            <div id="h_play1"  class="h_play1">
-                <img style="width: 100%;height:74.5vh" src="../../Images/h_play1.jpg">
+            <div id="h_play1" class="h_play1">
+                <img style="width: 100%;height:74.5vh" src="../Images/h_play1.jpg">
                 <button onclick="next1()" style="position: absolute;bottom:85%;right:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-right"></i></button>
-                
+
             </div>
             <div id="h_play2" class="h_play2">
-            <img style="width: 100%;height:74.5vh" src="../../Images/h_play2.jpg">
-            <button onclick="next2()" style="position: absolute;bottom:85%;right:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-right"></i></button>
-    <button onclick="prev2()" style="position: absolute;bottom:85%;left:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-left"></i></button>
-        </div>
-        <div id="h_play3" class="h_play3">
-            <img style="width: 100%;height:74.5vh" src="../../Images/h_play3.jpg">
-            <button onclick="next3()" style="position: absolute;bottom:85%;right:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-right"></i></button>
-    <button onclick="prev3()" style="position: absolute;bottom:85%;left:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-left"></i></button>
-        </div>
+                <img style="width: 100%;height:74.5vh" src="../Images/h_play2.jpg">
+                <button onclick="next2()" style="position: absolute;bottom:85%;right:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-right"></i></button>
+                <button onclick="prev2()" style="position: absolute;bottom:85%;left:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-left"></i></button>
+            </div>
+            <div id="h_play3" class="h_play3">
+                <img style="width: 100%;height:74.5vh" src="../Images/h_play3.jpg">
+                <button onclick="next3()" style="position: absolute;bottom:85%;right:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-right"></i></button>
+                <button onclick="prev3()" style="position: absolute;bottom:85%;left:10%;font-size:2rem;background:none;border:none"><i style="color:red;cursor:pointer" class="fa fa-arrow-left"></i></button>
+            </div>
         </div>
         <canvas class="firework"></canvas>
         <div id="progressbarback" class="progressbarback"></div>
         <div class="progressbar"></div>
         <div id="start_game">
-            <h1 style="font-family: cursive;color:black">Word Memory</h1><br>
+            <h1 style="font-family: cursive;color:white">Word Memory</h1><br>
             <button id="start_button" class="button" onclick="howPlay()">How To Play</button>
             <button id="start_button" class="button" onclick="startGame()">Start!</button>
         </div>
         <header id="time" style="color: black;">
 
-            <div id='timer' style="color: black;"></div>
+            <div id='timer' style="color: white;"></div>
         </header>
         <br>
 
@@ -202,19 +215,19 @@
 
             </div>
 
-            <input type="text" placeholder="answer" id="answer">
+            <input type="text" placeholder="answer" style="color:black" id="answer">
             <div id="feedback" style="font-size:22px"></div>
-            <!-- <button class='button' id="restart">Continue</button> -->
+            <button class='button'  style="padding-right: 1.5rem;font-size:20px" id="restart">Continue</button>
         </div>
 
     </div>
     <div class="play">
-    <h1 id="h1" style="font-family: cursive;color:black">Word Memory</h1>
-    <hr>
-    <p id="p" style="color: black;">This game will help you to improve your Memory.</p>
-    <p id="p1" style="color: black;">Memory training will help you to maintain higher cognitive functioning<br> and everyday skills.</p>
-    
-  </div>
+        <h1 id="h1" style="font-family: cursive;color:black">Word Memory</h1>
+        <hr>
+        <p id="p" style="color: black;">This game will help you to improve your Memory.</p>
+        <p id="p1" style="color: black;">Memory training will help you to maintain higher cognitive function,<br> and everyday skills.</p>
+
+    </div>
 </body>
 <script type="text/javascript">
     var maxWords = 10;
@@ -357,7 +370,7 @@
         h_play2.style.display = "none";
     }
 
-    function next3(){
+    function next3() {
         var h_play3 = document.getElementById("h_play3");
         var start_game = document.getElementById("start_game");
         start_game.style.display = "block";
@@ -366,3 +379,28 @@
 </script>
 
 </html>
+<script>
+  var mode = localStorage.getItem("mode");
+  console.log(mode);
+
+  if (mode == "day") {
+    localStorage.setItem("mode1", "day");
+    var mode1 = localStorage.getItem("mode1");
+    console.log(mode1);
+  }
+  if (mode == "night") {
+    
+    document.body.style.backgroundColor = "#2d385e";
+    var h1 = document.getElementById('h1');
+    var p1 = document.getElementById('p1');
+    var p = document.getElementById('p');
+    var fa = document.getElementById('fa');
+    h1.style.color = "white";
+    p1.style.color = "white";
+    p.style.color = "white";
+    fa.style.color = "white";
+    localStorage.setItem("mode1", "night");
+    var mode1 = localStorage.getItem("mode1");
+    console.log(mode1);
+  }
+</script>

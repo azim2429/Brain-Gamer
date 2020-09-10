@@ -233,13 +233,13 @@
     p1.style.color = 'black';
     p.style.color = 'black';
     var fa = document.getElementById("fa");
-    fa.style.color = "blue";
+    fa.style.color = "black";
 
   }
   if (mode == "night") {
     var fa = document.getElementById("fa");
     document.body.style.backgroundColor = "#2d385e";
-    fa.style.color = "lightblue";
+    fa.style.color = "white";
     localStorage.setItem("mode1", "night");
     var mode1 = localStorage.getItem("mode1");
     console.log(mode1);
@@ -259,6 +259,7 @@
 
   i{
     cursor: pointer;
+    color: black;
   }
   h3{
     font-size: 20px;

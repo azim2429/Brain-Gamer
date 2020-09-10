@@ -19,10 +19,10 @@
     
 	<h1 id="h1" class="h1" style="text-align: center;position:relative;top:19vh;">Our Latest Games</h1>
 	<div class="category">
-		<button href="something" id="button" class="button">Category-1</button>
-		<button href="something"id="button" id class="button">Category-1</button>
-		<button href="something" id="button" class="button">Category-1</button>
-		<button href="something" id="button" class="button">Category-1</button>
+		<button href="something" id="button" class="button">Speed</button>
+		<button href="something"id="button" id class="button">Memory</button>
+		<button href="something" id="button" class="button">Attention</button>
+		<button href="something" id="button" class="button">Others</button>
 		<input href="something" type="search" id="button" placeholder="Seacrh Games..." class="search"><i style="color:#3498db;font-size:4.5vh" class="fa fa-search"></i></input>
 
 	</div>
@@ -50,9 +50,9 @@
 		<figure class="effect-duke">
 			<img src="../Images/hay-day.jfif" />
 			<figcaption>
-				<h2>Hay <span>Day</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
+				<h2>Word  <span>Memory</span></h2>
+				<p>Memorize the words and write them after 20s</p>
+				<label><a class="a" href="../Word_Memory/word_memory.php">Play Now</a></label>
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
