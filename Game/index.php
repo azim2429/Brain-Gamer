@@ -371,7 +371,7 @@
         console.log(mode1);
 	}
 	else if(mode=="night"){
-		document.body.style.backgroundColor = "#2d385e";
+		document.body.style.backgroundColor = "#191970";
 		h1.style.color = "white";
 		
 		

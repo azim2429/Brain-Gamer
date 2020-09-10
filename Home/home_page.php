@@ -166,7 +166,7 @@
         var f = document.getElementById("sub-head5");
         x.style.display = "block";
         y.style.display = "none"
-        document.body.style.backgroundColor = "#2d385e";
+        document.body.style.backgroundColor = "#191970";
         a.style.color = "white";
         b.style.color = "white";
         c.style.color = "white";
@@ -175,9 +175,9 @@
         f.style.color = "white";
         document.body.style.color = "white";
         z.style.color = "white";
-        w.style.backgroundColor = "#2d385e";
+        w.style.backgroundColor = "#191970";
         v.style.color = "white";
-        u.style.backgroundColor = "#2d385e";
+        u.style.backgroundColor = "#191970";
     }
 
     function change_mode() {
@@ -213,7 +213,7 @@
         } else {
             x.style.display = "block";
             y.style.display = "none"
-            document.body.style.backgroundColor = "#2d385e";
+            document.body.style.backgroundColor = "#191970";
             a.style.color = "white";
             b.style.color = "white";
             c.style.color = "white";
@@ -222,9 +222,9 @@
             f.style.color = "white";
             document.body.style.color = "white";
             z.style.color = "white";
-            w.style.backgroundColor = "#2d385e";
+            w.style.backgroundColor = "#191970";
             v.style.color = "white";
-            u.style.backgroundColor = "#2d385e";
+            u.style.backgroundColor = "#191970";
             localStorage.setItem("mode", "night");
             var mode = localStorage.getItem("mode");
             console.log(mode);

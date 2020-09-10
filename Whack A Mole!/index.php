@@ -238,7 +238,7 @@
   }
   if (mode == "night") {
     var fa = document.getElementById("fa");
-    document.body.style.backgroundColor = "#2d385e";
+    document.body.style.backgroundColor = "#191970";
     fa.style.color = "white";
     localStorage.setItem("mode1", "night");
     var mode1 = localStorage.getItem("mode1");

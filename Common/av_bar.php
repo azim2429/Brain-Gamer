@@ -10,8 +10,9 @@
 
 <body>
     <nav>
-        <div class="logo">
-            <img src="../Images/logo.png">
+        <div class="logo"><a href="../Home/home_page.php">
+      <img src="../Images/logo.png"></a>
+    </div>
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -21,10 +22,10 @@
         <ul class="nav-links">
             <li><a href="../Home/home_page.php">Home</a></li>
             <li><a href="../Game/index.php">Our Games</a></li>
-            <li><a href="..\Authentication\registration1.php">Your Stats</a></li>
+            <li><a href="">Your Stats</a></li>
             <li><a href="#">Insights</a></li>
-            <li><button class="login-button" href="#">Login</button></li>
-            <a><li><button class="join-button" href="">Join</button></li></a>
+            <a href="..\Authentication\login1.php"><li><button class="login-button">Login</button></li></a>
+            <a href="..\Authentication\registration1.php"><li><button class="join-button">Join</button></li></a>
         </ul>
         
     </nav>

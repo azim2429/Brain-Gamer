@@ -390,7 +390,7 @@
   }
   if (mode == "night") {
     
-    document.body.style.backgroundColor = "#2d385e";
+    document.body.style.backgroundColor = "#191970";
     var h1 = document.getElementById('h1');
     var p1 = document.getElementById('p1');
     var p = document.getElementById('p');

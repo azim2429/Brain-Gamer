@@ -193,7 +193,7 @@
         console.log(mode1);
 	}
         if(mode=="night"){
-        document.body.style.backgroundColor = "#2d385e";
+        document.body.style.backgroundColor = "#191970";
 		h1.style.color = "white";
         localStorage.setItem("mode1", "night");
         var mode1 = localStorage.getItem("mode1");
