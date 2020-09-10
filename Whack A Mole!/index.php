@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<?php include "..\Common\preloader.php" ?>
+
 <a class="a_game" href="../Game/index.php">
     <i style="position:absolute;top:16%;left:10%" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
   <div class="main">

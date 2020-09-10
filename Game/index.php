@@ -38,7 +38,7 @@
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
-			<img style="height: 100%;" src="../Images/flick_master_cover.png" alt="img27" />
+			<img style="height: 75%;" src="../Images/flick_cover.png" alt="img27" />
 			<figcaption>
 				<h2>Flick <span>Master</span></h2>
 				<p>Match the arrows as you see the color of the arrows</p>
@@ -48,7 +48,7 @@
 			</figcaption>
 		</figure>
 		<figure class="effect-duke">
-			<img src="../Images/hay-day.jfif" />
+			<img src="../Images/word_cover.png" />
 			<figcaption>
 				<h2>Word  <span>Memory</span></h2>
 				<p>Memorize the words and write them after 20s</p>
