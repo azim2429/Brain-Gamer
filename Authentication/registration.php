@@ -5,57 +5,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Registration Page</title>
 </head>
 
 <body>
   <div class="login-box">
     <h2>Registration</h2>
-    <form>
+    <form  onsubmit="return validation()">
 
       <div class="user-box">
 
-        <input type="text" name="first name" id="first name" required="">
-        <label></label>
+        <input type="text" name="first name" id="first name" >
+        <label>First Name</label>
       </div>
       <div class="user-box">
-        <input type="text" name="last name" id="last name" required="">
-        <label></label>
+        <input type="text" name="last name" id="last name" >
+        <label>Last Name</label>
 
       </div>
 
       <div class="user-box">
-        <input type="email" name="email" id="email" required="">
-        <label></label>
+        <input type="email" name="email" id="email" >
+        <label>Email</label>
       </div>
       <div class="user-box">
-        <input type="date" name="birth date" id="birth date" required="">
-
+        <input type="date" name="birth date" id="birth date" >
+        <label>Date of Birth</label>
       </div>
       <div class="user-box">
-      <input type="text" name="username" id="username" required="">
+      <input type="text" name="username" id="username" >
       <label>Username</label>
+     
     </div>
     <div class="user-box">
-      <input type="password" name="password" id="password" required="">
+      <input type="password" name="password" id="password" >
       <label>Password</label>
     </div>
     <div class="user-box">
-      <input type="text" name="cpassword" id="cpassword" required="">
+      <input type="text" name="cpassword" id="cpassword" >
       <label>Confirm Password</label>
     </div>
-      <a href="#">
+      <a >
+      <input type="submit" name="submit" style="background:none;" value="submit">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        Submit
+        <!-- Submit -->
       </a>
-    </form>
+    </form >
   </div>
-  <div class="login-box">
+  <!-- <div class="login-box">
     <h2>Registration</h2>
-    <form>
+    <form onsubmit="return validation()">
       <div class="user-box">
         <input type="text" name="first name" id="first name" required="">
         <label>First Name</label>
@@ -77,9 +80,12 @@
       </div>
 
       <div class="user-box">
-      <input type="text" name="username" id="username" required="">
+      <input type="text" name="username" id="username" >
       <label>Username</label>
-    </div>
+      <p ></p>
+     
+        
+    </div><br>
     <div class="user-box">
       <input type="password" name="password" id="password" required="">
       <label>Password</label>
@@ -91,7 +97,8 @@
 
      
 
-      <a href="#">
+      <a>
+      <input type="submit" name="submit" style="background:none;" value="submit">
         <span></span>
         <span></span>
         <span></span>
@@ -99,7 +106,123 @@
         Submit
       </a>
     </form>
-  </div>
+  </div> -->
+
+  <script type="text/javascript">
+    function validation(){
+      var username = document.getElementById('username').value;
+      var fname =  document.getElementById('name').value;
+      var lname =  document.getElementById('company').value;
+      var email = document.getElementById('email').value; 
+      var pass = document.getElementById('pwd').value;
+	    var confirmpass = document.getElementById('cpwd').value;
+
+
+
+
+      if (fname == "") {
+				document.getElementById('username').innerHTML = "**Please fill the First Name field";
+				return false;
+                }
+			
+		else if ((fname.length <= 2) || (fname.length > 10)) {
+            document.getElementById('username').innerHTML = "**First Name  length must be between 2 and 10 characters";
+			return false;
+            }
+		else if (!isNaN(fname)) {
+			document.getElementById('username').innerHTML = "**Only characters are allowed";
+			return false;
+            }
+		else{
+            document.getElementById('username').innerHTML = "";
+            }
+
+        if (lname == "") {
+            document.getElementById('username1').innerHTML = "**Please fill the Last Name field";
+			return false;
+            }
+			
+		else if ((lname.length <= 2) || (lname.length > 10)) {
+            document.getElementById('username1').innerHTML = "**Last Name length must be between 2 and 10 characters";
+			return false;
+            }
+		else if (!isNaN(lname)) {
+            document.getElementById('username1').innerHTML = "**Only characters are allowed";
+			return false;
+            }
+		else{
+            document.getElementById('username1').innerHTML = "";
+            }
+
+            if (email == "") {
+            document.getElementById('emailids').innerHTML = "**Please fill the Email field";
+			return false;
+            }
+		else if (email.indexOf('@') <= 0) {
+            document.getElementById('emailids').innerHTML = "**Invalid @ position";
+			return false;
+            }
+		else if ((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')) {
+            document.getElementById('emailids').innerHTML = "**Invalid . position";
+			return false;
+            }
+      
+		else{
+            document.getElementById('emailids').innerHTML = "";
+            }
+
+
+      if (username == "") {
+				document.getElementById('user').innerHTML = "**Please fill the username field";
+				return false;
+			}
+
+      else if ((username.length <= 2) || (username.length > 20)) {
+				document.getElementById('user').innerHTML = "**Username length must be between 2 and 20 characters";
+				return false;
+			}
+			else if (!isNaN(username)) {
+				document.getElementById('user').innerHTML = "**Only characters are allowed";
+				return false;
+			}
+			else{
+				document.getElementById('user').innerHTML = "";
+			}
+
+      if (pass == "") {
+				document.getElementById('passwords').innerHTML = "**Please fill the Password field";
+				return false;
+			}
+			else if ((pass.length < 5) || (pass.length > 20)) {
+				document.getElementById('passwords').innerHTML = "**Password length must be between 5 and 20 characters";
+				return false;
+			}
+			else{
+				document.getElementById('passwords').innerHTML = "";
+			}
+
+			if (pass!=confirmpass) {
+				document.getElementById('confirmpass').innerHTML = "**Password are not matching";
+				return false;
+			}
+
+
+
+
+			else if (confirmpass == "") {
+				document.getElementById('confirmpass').innerHTML = "**Please fill the Confirm Password field";
+				return false;
+			}
+			else{
+				document.getElementById('confirmpass').innerHTML = "";
+                x.style.display = "block";
+                console.log("Akhil");
+                
+                
+			}
+
+    }
+  </script>
 
 </body>
 
@@ -180,7 +303,7 @@
     font-size: 12px;
   }
 
-  .login-box form a {
+  .login-box form input[type=submit] {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -194,7 +317,7 @@
     letter-spacing: 4px
   }
 
-  /* .login-box a:hover {
+  .login-box input[type=submit]:hover {
     background: #3498db;
     color: #fff;
     border-radius: 5px;
@@ -202,14 +325,14 @@
       0 0 25px #3498db,
       0 0 50px #3498db,
       0 0 100px #3498db;
-  } */
+  }
 
-  .login-box a span {
+  .login-box input[type=submit] span {
     position: absolute;
     display: block;
   }
 
-  .login-box a span:nth-child(1) {
+  .login-box input[type=submit] span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -218,7 +341,7 @@
     animation: btn-anim1 1s linear infinite;
   }
 
-  /* @keyframes btn-anim1 {
+  @keyframes btn-anim1 {
     0% {
       left: -100%;
     }
@@ -227,9 +350,9 @@
     100% {
       left: 100%;
     }
-  } */
+  }
 
-  .login-box a span:nth-child(2) {
+  .login-box input[type=submit] span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -239,7 +362,7 @@
     animation-delay: .25s
   }
 
-  /* @keyframes btn-anim2 {
+  @keyframes btn-anim2 {
     0% {
       top: -100%;
     }
@@ -248,9 +371,9 @@
     100% {
       top: 100%;
     }
-  } */
+  }
 
-  .login-box a span:nth-child(3) {
+  .login-box input[type=submit] span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -260,7 +383,7 @@
     animation-delay: .5s
   }
 
-  /* @keyframes btn-anim3 {
+  @keyframes btn-anim3 {
     0% {
       right: -100%;
     }
@@ -269,9 +392,9 @@
     100% {
       right: 100%;
     }
-  } */
+  }
 
-  .login-box a span:nth-child(4) {
+  .login-box input[type=submit] span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -281,7 +404,7 @@
     animation-delay: .75s
   }
 
-  /* @keyframes btn-anim4 {
+  @keyframes btn-anim4 {
     0% {
       bottom: -100%;
     }
@@ -290,7 +413,7 @@
     100% {
       bottom: 100%;
     }
-  } */
+  }
 
   @media only screen and (max-width: 600px) {
     body {
