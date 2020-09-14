@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
@@ -13,11 +14,18 @@
 
 <body>
     <?php include "..\Common\av_bar.php" ?>
-     
+    
+
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
-            <h1 style="font-size: 4rem;">BRAIN GAMES</h1>
-            <h3 style="font-family: times;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
+            <?php if (isset($_SESSION['fname'])) { ?>
+                <h1 style="font-size: 4rem;">Welcome <?php echo $_SESSION['fname'] ?> <?php echo $_SESSION['lname'] ?></h1>
+                <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
+            <?php } ?>
+            <?php if (!isset($_SESSION['fname'])) { ?>
+                <h1 style="font-size: 4rem;">Welcome To Brain Games</h1>
+                <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
+            <?php } ?>
             <div class="mode-1">
                 <img style="cursor:pointer;margin:20px;width:10vh" onclick="change_mode()" id="logo_light" src='..\Images\day_mode.png' alt="Logo Image">
                 <img style="cursor:pointer;margin:20px;width:10vh" id="logo_dark" onclick="change_mode()" src='..\Images\ni8_mode.png' alt="Logo Image">
@@ -31,20 +39,20 @@
         <h1 id="header" style="color: black;margin:20px;">Our Featuered Games</h1>
         <section id="features" class="features">
             <div class="feature-container">
-                <img style="position: relative;" src="..\Images\download.png">
-                <h2 id="sub-head" style="font-family: cursive;">Category-1</h2>
+                <img style="position: relative;height:55vh" src="..\Images\speed.jpg">
+                <h2 id="sub-head" style="font-family: cursive;">Speed</h2>
                 <p id="sub-head1" style="font-family: arial;color:black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>
             <div class="feature-container">
-                <img src="..\Images\download.png">
-                <h2 id="sub-head2" style="font-family: cursive;">Category-2</h2>
+                <img style="height:55vh" src="..\Images\mem.png">
+                <h2 id="sub-head2" style="font-family: cursive;">Memory</h2>
                 <p id="sub-head3" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>
             <div class="feature-container">
-                <img src="..\Images\download.png">
-                <h2 id="sub-head4" style="font-family: cursive;">Category-3</h2>
+                <img src="..\Images\atten.png">
+                <h2 id="sub-head4" style="font-family: cursive;">Attention</h2>
                 <p id="sub-head5" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                 <button href="something" class="play_button">Play Now!</button>
             </div>
@@ -60,7 +68,7 @@
 
                 <h1 class="header_leader" style="color:#fa5655">LEADERBOARD</h1>
                 <p id="content_leader" class="content_leader">Join The Global Player and View Your Standings in the Leaderboard</p>
-                <a style="color:#f8b500;text-decoration:none;" href="#">
+                <a style="color:#f8b500;text-decoration:none;" href="../Leaderboard/index1.php">
                     <button class="button_leader">View Leaderboard</button></a>
             </div>
         </div>
@@ -89,35 +97,40 @@
             <div class="contact">
                 <h1 style="font-family: arial;">Contact Us</h1><br>
 
-                <form id="contact-form">
+                <form id="contact-form" onsubmit="return validation()">
 
                     <p>
                         <label style="font-family: arial;">Company</label>
-                        <input style="font-family: arial;font-weight:bold" placeholder="First Name" type="text" name="name" id="name" required>
+                        <input style="font-family: arial;font-weight:bold" placeholder="First Name" type="text" name="name" id="name">
+                        <span id="username" style="color:white; font-weight:bold;"></span>
                     </p>
 
                     <p>
                         <label style="font-family: arial;">Company</label>
                         <input type="text" style="font-family: arial;font-weight:bold" name="company" placeholder="Last Name" id="company">
+                        <span id="username1" style="color:white; font-weight:bold;"></span>
                     </p>
 
                     <p>
                         <label style="font-family: arial;">E-mail Address</label>
-                        <input type="email" style="font-family: arial;font-weight:bold" placeholder="Email" name="email" id="email" required>
+                        <input type="text" style="font-family: arial;font-weight:bold" placeholder="Email" name="email" id="email">
+                        <span id="emailids" style="color:white; font-weight:bold;"></span>
                     </p>
 
                     <p>
                         <label style="font-family: arial;">Phone Number</label>
-                        <input type="text" style="font-family: arial;font-weight:bold" placeholder="Mobile Number" name="phone" id="phone">
+                        <input type="text" style="font-family: arial;font-weight:bold" placeholder="Mobile Number" name="mobileNumber" id="mobileNumber">
+                        <span id="mobileno" style="color:white; font-weight:bold;"></span>
                     </p>
 
                     <p class="full">
                         <label style="font-family: arial;">Message</label>
                         <textarea name="message" style="font-family: arial;font-weight:bold" placeholder="Your Message" rows="5" id="message"></textarea>
+                        <span id="feedback" style="color:white; font-weight:bold;"></span>
                     </p>
 
                     <p class="full">
-                        <button style="font-family: arial;" style="font-family: arial;font-weight:bold" type="submit">Submit</button>
+                        <button style="font-family: arial;" style="font-family: arial;font-weight:bold" type="submit" name="submit" value="submit">Submit</button>
                     </p>
                 </form>
             </div>
@@ -160,7 +173,7 @@
         var f = document.getElementById("sub-head5");
         x.style.display = "block";
         y.style.display = "none"
-        document.body.style.backgroundColor = "#2d385e";
+        document.body.style.backgroundColor = "#191970";
         a.style.color = "white";
         b.style.color = "white";
         c.style.color = "white";
@@ -169,9 +182,9 @@
         f.style.color = "white";
         document.body.style.color = "white";
         z.style.color = "white";
-        w.style.backgroundColor = "#2d385e";
+        w.style.backgroundColor = "#191970";
         v.style.color = "white";
-        u.style.backgroundColor = "#2d385e";
+        u.style.backgroundColor = "#191970";
     }
 
     function change_mode() {
@@ -207,7 +220,7 @@
         } else {
             x.style.display = "block";
             y.style.display = "none"
-            document.body.style.backgroundColor = "#2d385e";
+            document.body.style.backgroundColor = "#191970";
             a.style.color = "white";
             b.style.color = "white";
             c.style.color = "white";
@@ -216,14 +229,82 @@
             f.style.color = "white";
             document.body.style.color = "white";
             z.style.color = "white";
-            w.style.backgroundColor = "#2d385e";
+            w.style.backgroundColor = "#191970";
             v.style.color = "white";
-            u.style.backgroundColor = "#2d385e";
+            u.style.backgroundColor = "#191970";
             localStorage.setItem("mode", "night");
             var mode = localStorage.getItem("mode");
             console.log(mode);
 
         }
+    }
+
+    function validation() {
+        var fname = document.getElementById('name').value;
+        var lname = document.getElementById('company').value;
+        var email = document.getElementById('email').value;
+        var mobileNumber = document.getElementById('mobileNumber').value;
+        var message = document.getElementById('message').value;
+
+
+
+        if (fname == "") {
+            document.getElementById('username').innerHTML = "**Please fill the First Name field";
+            return false;
+        } else if ((fname.length <= 2) || (fname.length > 10)) {
+            document.getElementById('username').innerHTML = "**First Name  length must be between 2 and 10 characters";
+            return false;
+        } else if (!isNaN(fname)) {
+            document.getElementById('username').innerHTML = "**Only characters are allowed";
+            return false;
+        } else {
+            document.getElementById('username').innerHTML = "";
+        }
+
+        if (lname == "") {
+            document.getElementById('username1').innerHTML = "**Please fill the Last Name field";
+            return false;
+        } else if ((lname.length <= 2) || (lname.length > 10)) {
+            document.getElementById('username1').innerHTML = "**Last Name length must be between 2 and 10 characters";
+            return false;
+        } else if (!isNaN(lname)) {
+            document.getElementById('username1').innerHTML = "**Only characters are allowed";
+            return false;
+        } else {
+            document.getElementById('username1').innerHTML = "";
+        }
+
+        if (email == "") {
+            document.getElementById('emailids').innerHTML = "**Please fill the Email field";
+            return false;
+        } else if (email.indexOf('@') <= 0) {
+            document.getElementById('emailids').innerHTML = "**Invalid @ position";
+            return false;
+        } else if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.length - 3) != '.')) {
+            document.getElementById('emailids').innerHTML = "**Invalid . position";
+            return false;
+        } else {
+            document.getElementById('emailids').innerHTML = "";
+        }
+
+        if (mobileNumber == "") {
+            document.getElementById('mobileno').innerHTML = "**Please fill the Mobile Number field";
+            return false;
+        } else if (isNaN(mobileNumber)) {
+            document.getElementById('mobileno').innerHTML = "**User must enter numbers only not characters";
+            return false;
+        } else if (mobileNumber.length != 10) {
+            document.getElementById('mobileno').innerHTML = "**Mobile Number must be 10 digits only ";
+            return false;
+        } else {
+            document.getElementById('mobileno').innerHTML = "";
+        }
+
+        if (message == "") {
+            document.getElementById('feedback').innerHTML = "**Please fill the Message field";
+            return false;
+        }
+
     }
 </script>
 <style>
@@ -610,5 +691,3 @@
         }
 
     }
-
-    

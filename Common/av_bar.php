@@ -1,3 +1,13 @@
+<?php
+session_start();
+?>
+<?php
+if (isset($_REQUEST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location:..\Authentication\login1.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +20,9 @@
 
 <body>
     <nav>
-        <div class="logo">
-            <img src="../Images/logo.png">
+        <div class="logo"><a href="../Home/home_page.php">
+                <img src="../Images/logo.png"></a>
+        </div>
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -21,12 +32,27 @@
         <ul class="nav-links">
             <li><a href="../Home/home_page.php">Home</a></li>
             <li><a href="../Game/index.php">Our Games</a></li>
-            <li><a href="">Your Stats</a></li>
+            <li><a href="..\Admin\enter_game.php">Your Stats</a></li>
             <li><a href="#">Insights</a></li>
-            <li><button class="login-button" href="#">Login</button></li>
-            <li><button class="join-button" href="#">Join</button></li>
+            <?php if (!isset($_SESSION['uphoto'])) { ?>
+                <a href="..\Authentication\login1.php">
+                    <li><button class="login-button">Login</button></li>
+                </a>
+                <a href="..\Authentication\registration1.php">
+                    <li><button class="join-button">Join</button></li>
+                </a>
+            <?php } else if (isset($_SESSION['uphoto'])) { ?>
+                <form action="" method="POST">
+                    <a>
+                        <li><button name=logout class="login-button">Logout</button></li>
+                    </a>
+                </form>
+                <a>
+                    <li><button class="join-button"><?php echo $_SESSION['uname'] ?></button></li>
+                </a>
+                <img class="uphoto" src="data:image/jpg;charset=utf8;base64,<?php echo $_SESSION['uphoto'] ?>" onerror="this.onerror=null;this.src='../Images/alt.png';" style="width: 5%;height:65%;border-radius:50%">
+            <?php } ?>
         </ul>
-        
     </nav>
 </body>
 
@@ -46,8 +72,6 @@
         //Hamburger Animation
         hamburger.classList.toggle("toggle");
     });
-
-    
 </script>
 <style>
     * {
@@ -79,10 +103,11 @@
         position: fixed;
         z-index: 1;
         opacity: 1;
+
         font-family: Impact, Charcoal, sans-serif;
     }
 
-    
+
     .logo {
         padding: 1vh 1vw;
         text-align: center;
@@ -94,7 +119,7 @@
         width: 6rem;
     }
 
-    
+
     .nav-links {
         display: flex;
         list-style: none;
@@ -118,7 +143,7 @@
         position: relative;
     }
 
-    
+
     .login-button {
         background-color: transparent;
         border: 1.5px solid #f2f5f7;
@@ -154,7 +179,7 @@
         transition: all ease-in-out 350ms;
     }
 
-    
+
     .hamburger div {
         width: 30px;
         height: 3px;
@@ -172,6 +197,10 @@
             position: fixed;
             z-index: 3;
             opacity: 1;
+        }
+
+        .uphoto {
+            display: none;
         }
 
         .hamburger {
