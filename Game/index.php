@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,70 +16,150 @@
 </body>
 
 </html>
+<?php
+include '..\Authentication\connect_db.php';
+?>
 <div class="content">
     
 	<h1 id="h1" class="h1" style="text-align: center;position:relative;top:19vh;">Our Latest Games</h1>
 	<div class="category">
-		<button href="something" id="button" class="button">Speed</button>
-		<button href="something"id="button" id class="button">Memory</button>
-		<button href="something" id="button" class="button">Attention</button>
-		<button href="something" id="button" class="button">Others</button>
-		<input href="something" type="search" id="button" placeholder="Seacrh Games..." class="search"><i style="color:#3498db;font-size:4.5vh" class="fa fa-search"></i></input>
-
-	</div>
+	<form method="GET" action="index.php">
+	
+		<button href="something" id="button" type="submit" name="Speed" class="button">Speed</button>
+		<button href="something"id="button" type="submit" name="Memory" id class="button">Memory</button>
+		<button href="something" id="button" type="submit" name="Attention" class="button">Attention</button>
+		<button href="something" id="button" type="submit" name="All" class="button">All Games</button>
+		
+	</form>
+	<form method="GET" action="index.php">
+		<div class="find" style="position: absolute;right:20%;top:25.5%">
+	<input href="something" type="search" name="search"  id="button" placeholder="Seacrh Games..." class="search"><button  style="background: none;border:none;cursor:pointer" name="find"><i style="color:#3498db;font-size:4.5vh;" class="fa fa-search"></i></button></input>
+		</div>
+	</form>
+</div>
 	<div class="grid">
+	<?php 
+		if (isset($_GET['Speed'])) {
+		$s_query = "select * from game_image where game_type='Speed'";
+		$s_res = mysqli_query($conn,$s_query);
+		while ($s_row = mysqli_fetch_array($s_res)) {
+			$s_name =  $s_row['name'];
+			$s_image =  base64_encode($s_row['image']);
+			$s_game_desc =  $s_row['game_desc'];
+			$s_link =  $s_row['link'];
+			
+		?>
 		<figure class="effect-duke">
-			<img src="../Images/mole.svg" class="mole" />
+			<img src="data:image/jpg;charset=utf8;base64,<?php echo $s_image?>" class="mole" />
 			<figcaption>
-				<h2>Whack a <span> </span> <span>Mole!</span></h2>
-				<p>Hit some bunnies popping out <br>from their holes</p>
+				<h2><span><?php echo $s_name; ?></span></h2>
+				<p><?php echo $s_game_desc; ?></p>
 				
-				<label><a class="a" href="../Whack A Mole!/index.php">Play Now</a></label>
+				<label><a class="a" href="<?php echo $s_link; ?>?id=<?php echo $s_row['game_id'];?>&name=<?php echo $s_row['name'];?>&type=<?php echo $s_row['game_type'];?>">Play Now</a></label>
 				
 			</figcaption>
 		</figure>
+		<?php }}
+		else if (isset($_GET['Memory'])) {
+			$m_query = "select * from game_image where game_type='Memory'";
+			$m_res = mysqli_query($conn,$m_query);
+			while ($m_row = mysqli_fetch_array($m_res)) {
+				$m_name =  $m_row['name'];
+				$m_image =  base64_encode($m_row['image']);
+				$m_game_desc =  $m_row['game_desc'];
+			    $m_link =  $m_row['link'];
+			?>
+			<figure class="effect-duke">
+				<img src="data:image/jpg;charset=utf8;base64,<?php echo $m_image?>" class="mole" />
+				<figcaption>
+					<h2><span><?php echo $m_name; ?></span></h2>
+					<p><?php echo $m_game_desc; ?></p>
+					
+					<label><a class="a" href="<?php echo $m_link; ?>?id=<?php echo $m_row['game_id'];?>&name=<?php echo $m_row['name'];?>&type=<?php echo $m_row['game_type'];?>">Play Now</a></label>
+					
+				</figcaption>
+			</figure>
+			<?php }}else if (isset($_GET['Attention'])) {
+		$a_query = "select * from game_image where game_type='Attention'";
+		$a_res = mysqli_query($conn,$a_query);
+		while ($a_row = mysqli_fetch_array($a_res)) {
+			$a_name =  $a_row['name'];
+			$a_image =  base64_encode($a_row['image']);
+			$a_game_desc =  $a_row['game_desc'];
+		    $a_link =  $a_row['link'];
+		?>
 		<figure class="effect-duke">
-			<img style="height: 75%;" src="../Images/flick_cover.png" alt="img27" />
+			<img src="data:image/jpg;charset=utf8;base64,<?php echo $a_image?>" class="mole" />
 			<figcaption>
-				<h2>Flick <span>Master</span></h2>
-				<p>Match the arrows as you see the color of the arrows</p>
-				<label><a class="a" href="../Flick_Master/flick_master.php">Play Now</a></label>
-
-
+				<h2><span><?php echo $a_name; ?></span></h2>
+				<p><?php echo $a_game_desc; ?></p>
+				
+				<label><a class="a" href="<?php echo $a_link; ?>?id=<?php echo $a_row['game_id'];?>&name=<?php echo $a_row['name'];?>&type=<?php echo $a_row['game_type'];?>">Play Now</a></label>
+				
 			</figcaption>
 		</figure>
+		<?php }}else if (isset($_GET['All'])){
+			$al_query = "select * from game_image";
+			$al_res = mysqli_query($conn,$al_query);
+			while ($al_row = mysqli_fetch_array($al_res)) {
+			$al_name =  $al_row['name'];
+			$al_image =  base64_encode($al_row['image']);
+			$al_game_desc =  $al_row['game_desc'];
+			$al_link =  $al_row['link'];
+			?>
 		<figure class="effect-duke">
-			<img src="../Images/word_cover.png" />
+			<img src="data:image/jpg;charset=utf8;base64,<?php echo $al_image ?>" class="mole" />
 			<figcaption>
-				<h2>Word  <span>Memory</span></h2>
-				<p>Memorize the words and write them after 20s</p>
-				<label><a class="a" href="../Word_Memory/word_memory.php">Play Now</a></label>
+				<h2><span><?php echo $al_name; ?></span></h2>
+				<p><?php echo $al_game_desc; ?></p>
+				
+				<label><a class="a" href="<?php echo $al_link; ?>?id=<?php echo $al_row['game_id'];?>&name=<?php echo $al_row['name'];?>&type=<?php echo $al_row['game_type'];?>">Play Now</a></label>
+				
 			</figcaption>
 		</figure>
+		
+		<?php }}
+		
+		else if (isset($_GET['find'])) {
+		$search = $_GET['search'];
+		$f_sql = "select * from game_image where name like '%".$search."%' ";
+		$f_res = mysqli_query($conn, $f_sql);
+		while ($f_row = mysqli_fetch_array($f_res)) {
+			$f_name =  $f_row['name'];
+			$f_image =  base64_encode($f_row['image']);
+			$f_game_desc =  $f_row['game_desc'];
+		    $f_link =  $f_row['link'];
+		?>
 		<figure class="effect-duke">
-			<img src="../Images/COC.jpg"/>
+			<img src="data:image/jpg;charset=utf8;base64,<?php echo $f_image?>" class="mole" />
 			<figcaption>
-				<h2>Clash <span>CLans</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
+				<h2><span><?php echo $f_name; ?></span></h2>
+				<p><?php echo $f_game_desc; ?></p>
+				
+				<label><a class="a" href="<?php echo $f_link; ?>?id=<?php echo $f_row['game_id'];?>&name=<?php echo $f_row['name'];?>&type=<?php echo $f_row['game_type'];?>">Play Now</a></label>
+				
 			</figcaption>
 		</figure>
-		<figure class="effect-duke">
-			<img src="../Images/cr.png" />
+		<?php }}else{
+			$query = "select * from game_image";
+			$res = mysqli_query($conn,$query);
+			while ($row = mysqli_fetch_array($res)) {
+			$name =  $row['name'];
+			$image =  base64_encode($row['image']);
+			$game_desc =  $row['game_desc'];
+			$link =  $row['link'];
+			?>
+			<figure class="effect-duke">
+			<img src="data:image/jpg;charset=utf8;base64,<?php echo $image ?>" class="mole" />
 			<figcaption>
-				<h2>Clash <span>Royale</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
+				<h2><span><?php echo $name; ?></span></h2>
+				<p><?php echo $game_desc; ?></p>
+				
+				<label><a class="a" href="<?php echo $link; ?>?id=<?php echo $row['game_id'];?>&name=<?php echo $row['name'];?>&type=<?php echo $row['game_type'];?>">Play Now</a></label>
+				
 			</figcaption>
 		</figure>
-		<figure class="effect-duke">
-			<img src="../Images/hay-day.jfif"/>
-			<figcaption>
-				<h2>Hay <span>Day</span></h2>
-				<p>Small Description About the game.</p>
-				<label>Play Now</label>
-			</figcaption>
-		</figure>
+		<?php }} ?>
 	</div>
 </div>
 <style>
@@ -356,6 +437,9 @@
 			margin-left: 0;
 			margin-right:5vh;
 			margin-top: 19vh;
+		}
+		.find{
+			position: relative;
 		}
 
 	}

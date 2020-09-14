@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
@@ -13,12 +14,18 @@
 
 <body>
     <?php include "..\Common\av_bar.php" ?>
-    <?php include "..\Common\preloader.php" ?>
-     
+    
+
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
-            <h1 style="font-size: 4rem;">BRAIN GAMES</h1>
-            <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
+            <?php if (isset($_SESSION['fname'])) { ?>
+                <h1 style="font-size: 4rem;">Welcome <?php echo $_SESSION['fname'] ?> <?php echo $_SESSION['lname'] ?></h1>
+                <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
+            <?php } ?>
+            <?php if (!isset($_SESSION['fname'])) { ?>
+                <h1 style="font-size: 4rem;">Welcome To Brain Games</h1>
+                <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
+            <?php } ?>
             <div class="mode-1">
                 <img style="cursor:pointer;margin:20px;width:10vh" onclick="change_mode()" id="logo_light" src='..\Images\day_mode.png' alt="Logo Image">
                 <img style="cursor:pointer;margin:20px;width:10vh" id="logo_dark" onclick="change_mode()" src='..\Images\ni8_mode.png' alt="Logo Image">
@@ -90,11 +97,11 @@
             <div class="contact">
                 <h1 style="font-family: arial;">Contact Us</h1><br>
 
-                <form id="contact-form"  onsubmit="return validation()">
+                <form id="contact-form" onsubmit="return validation()">
 
                     <p>
                         <label style="font-family: arial;">Company</label>
-                        <input style="font-family: arial;font-weight:bold" placeholder="First Name" type="text" name="name" id="name" >
+                        <input style="font-family: arial;font-weight:bold" placeholder="First Name" type="text" name="name" id="name">
                         <span id="username" style="color:white; font-weight:bold;"></span>
                     </p>
 
@@ -106,7 +113,7 @@
 
                     <p>
                         <label style="font-family: arial;">E-mail Address</label>
-                        <input type="text" style="font-family: arial;font-weight:bold" placeholder="Email" name="email" id="email" >
+                        <input type="text" style="font-family: arial;font-weight:bold" placeholder="Email" name="email" id="email">
                         <span id="emailids" style="color:white; font-weight:bold;"></span>
                     </p>
 
@@ -231,89 +238,74 @@
 
         }
     }
-    function validation(){
-        var fname =  document.getElementById('name').value;
-        var lname =  document.getElementById('company').value;
-        var email = document.getElementById('email').value; 
+
+    function validation() {
+        var fname = document.getElementById('name').value;
+        var lname = document.getElementById('company').value;
+        var email = document.getElementById('email').value;
         var mobileNumber = document.getElementById('mobileNumber').value;
-        var message =  document.getElementById('message').value;
+        var message = document.getElementById('message').value;
 
 
 
         if (fname == "") {
-				document.getElementById('username').innerHTML = "**Please fill the First Name field";
-				return false;
-                }
-			
-		else if ((fname.length <= 2) || (fname.length > 10)) {
+            document.getElementById('username').innerHTML = "**Please fill the First Name field";
+            return false;
+        } else if ((fname.length <= 2) || (fname.length > 10)) {
             document.getElementById('username').innerHTML = "**First Name  length must be between 2 and 10 characters";
-			return false;
-            }
-		else if (!isNaN(fname)) {
-			document.getElementById('username').innerHTML = "**Only characters are allowed";
-			return false;
-            }
-		else{
+            return false;
+        } else if (!isNaN(fname)) {
+            document.getElementById('username').innerHTML = "**Only characters are allowed";
+            return false;
+        } else {
             document.getElementById('username').innerHTML = "";
-            }
+        }
 
         if (lname == "") {
             document.getElementById('username1').innerHTML = "**Please fill the Last Name field";
-			return false;
-            }
-			
-		else if ((lname.length <= 2) || (lname.length > 10)) {
+            return false;
+        } else if ((lname.length <= 2) || (lname.length > 10)) {
             document.getElementById('username1').innerHTML = "**Last Name length must be between 2 and 10 characters";
-			return false;
-            }
-		else if (!isNaN(lname)) {
+            return false;
+        } else if (!isNaN(lname)) {
             document.getElementById('username1').innerHTML = "**Only characters are allowed";
-			return false;
-            }
-		else{
+            return false;
+        } else {
             document.getElementById('username1').innerHTML = "";
-            }
+        }
 
         if (email == "") {
             document.getElementById('emailids').innerHTML = "**Please fill the Email field";
-			return false;
-            }
-		else if (email.indexOf('@') <= 0) {
+            return false;
+        } else if (email.indexOf('@') <= 0) {
             document.getElementById('emailids').innerHTML = "**Invalid @ position";
-			return false;
-            }
-		else if ((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')) {
+            return false;
+        } else if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.length - 3) != '.')) {
             document.getElementById('emailids').innerHTML = "**Invalid . position";
-			return false;
-            }
-      
-		else{
+            return false;
+        } else {
             document.getElementById('emailids').innerHTML = "";
-            }
+        }
 
         if (mobileNumber == "") {
             document.getElementById('mobileno').innerHTML = "**Please fill the Mobile Number field";
-			return false;
-            }
-		else if (isNaN(mobileNumber)) {
+            return false;
+        } else if (isNaN(mobileNumber)) {
             document.getElementById('mobileno').innerHTML = "**User must enter numbers only not characters";
-			return false;
-            }
-		else if (mobileNumber.length!=10) {
+            return false;
+        } else if (mobileNumber.length != 10) {
             document.getElementById('mobileno').innerHTML = "**Mobile Number must be 10 digits only ";
-			return false;
-            }
-		else{
+            return false;
+        } else {
             document.getElementById('mobileno').innerHTML = "";
-            }
+        }
 
         if (message == "") {
             document.getElementById('feedback').innerHTML = "**Please fill the Message field";
-			return false;
-            }
+            return false;
+        }
 
     }
-
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
@@ -699,5 +691,3 @@
         }
 
     }
-
-    

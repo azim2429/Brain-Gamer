@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+      include '..\Authentication\connect_db.php';
+        $name = $_GET['name'];
+        $game_type  = $_GET['type'];
+        $game_id  = $_GET['id'];
+      if(isset($_GET["continue"])){ 
+        $points=$_GET['points'];
+        $accuracy=$_GET['accuracy'];
+        
+        $query="insert into user_stats(game_id,name,game_type,points,accuracy) values('$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
 <head>
   <meta charset="UTF-8">
   <title>Whack A Mole!</title>
@@ -24,13 +36,21 @@
     </div>
     <div id="end" class="end" style="text-align: center;">
       <h1>Your Points:</h1>
-      <h2 style="font-family: arial;" id="f_score">0</h2><br>
+      <form action="index.php" method="GET">
+      
+      <h2 style="font-family: arial;"><input name="points" id="f_score" style="background: none;border:none;font-size:2rem;width:8%" ></h2><br>
       <h3 id="a1" style="font-family: arial">Too Bad!Please try again.</h3><br>
-      <h3 id="a2" style="font-family:arial ">Total hits:0/50</h3>
-      <h3 id="a3" style="font-family:arial ">Accuracy 0%</h3>
+      <h3 id="a2" style="font-family:arial ">Total hits:<input  style="background: none;border:none;font-size:3vh;width:5%"  value="0" >/50</h3>
+      <h3  style="font-family:arial ">Accuracy :<input id="a3" name="accuracy" style="background: none;border:none;font-size:3vh;width:5%">%</h3>
+      <div style="display:none">
+      
+    </div>
+      
       <br>
       
-      <button class="button">Continue</button>
+      <button type="submit" name="continue" class="button">Continue</button>
+      </form>
+      
     </div>
     <div id="body" class="body">
       <span class="score">0</span><label class="l_score">Score:</label>
@@ -168,7 +188,7 @@
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
     points = score*5;
-    document.getElementById('f_score').innerHTML = points;
+    document.getElementById("f_score").value = points;
     if (score >= 0 && score <= 20) {
       document.getElementById('a1').innerHTML = "Not Bad ! Your score is more than 50% players ";
     }
@@ -180,7 +200,8 @@
     }
     document.getElementById('a2').innerHTML = " Total hits : " + score + "/45";
     avg = parseInt((score / 42) * 100);
-    document.getElementById('a3').innerHTML = " Accuracy : " + avg + "%";
+    document.getElementById("a3").value = avg;
+    
   }
   function howPlay(){
     display.style.display = "none";
@@ -339,6 +360,7 @@
     position: absolute;
     top: 40%;
     left: 24%;
+   
   }
 
   .game {
