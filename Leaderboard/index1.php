@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    
+
+
 <div class="leaderboard">
   <header>
     <h1>Leader Board</h1>
