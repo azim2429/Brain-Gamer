@@ -1,0 +1,224 @@
+body{
+  background-color:
+}
+/* TEMP NAV-BAR */
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  height: 50px;
+}
+
+.active {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* END OF NAVB */
+.list-container{
+  size: ;
+    list-style-type: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    size: 100px;
+  }
+  .list-container li{
+    display: flex;
+    background-color: var(--color);
+    color: #fff;
+  
+    padding: 49px;
+    border-radius: 14px;
+  
+    transform-origin: top;
+    animation: fade-in .5s ease-in-out both;
+  }
+  .main{
+    column-count: 3;
+    column-gap: 20px;
+    column-width: 100px;
+    column-rule-style: solid;
+    column-rule-width: 1px;
+    column-rule-color: black;
+    background-color: #f1f3de;
+    /* width: 100%; */
+    height: 210px;
+    align-content: center;
+    padding: 50px;
+    text-align: center;
+    justify-self: center;
+    margin-left: 300px;
+    margin-right: 300px;
+    top: auto;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+    
+  }
+  .button {
+    background-color: ; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 50vh;
+    background: linear-gradient(90deg, #03a9f4, #f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    /* position: absolute; */
+   
+  }
+  .center{
+    display: flex;
+    position: absolute;
+   align-items: center;
+   justify-content: center;
+
+   margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  }
+  @keyframes animate
+  {
+    0%
+    {
+      background-position: 0%;
+    }
+    100%
+    {
+      background-position: 400%;
+    }
+  }
+  .button1 {
+    animation: animate 8s linear infinite;
+    /* background-color  */
+    color: #2196f3;
+     text-transform: uppercase;
+
+    border: 2px solid blue;
+  }
+  .button1:hover {
+   
+    background-color: #158467;
+     color: #255784;
+    box-shadow: 0 12px 16px #158467,0 17px 50px #158467;
+  }
+  h2{
+    column-span: all;
+  }
+  h3{
+    font-size: solid;
+    /* text-transform: uppercase; */
+    
+  }
+  @keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(.75);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+  }
+  .list-container li:nth-child(2){
+    animation-delay: .1s;
+  }
+  .list-container li:nth-child(3){
+    animation-delay: .2s;
+  }
+  .list-container li:not(:first-child){
+    margin-top: 21px;
+  }
+  .list-container li .card-icon{
+    width: 75px;
+    opacity: 035;
+    margin-left: 120px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .list-container li .card-content{
+    min-width: 350px;
+    /* height: 500px; */
+  }
+  .list-container li h2 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 500;
+  }
+  .list-container li span {
+    font-size: 14px;
+    font-weight: 300;
+    opacity: .75;
+  }
+  .card-content .card-progress-container{
+    display: flex;
+    align-items: center;
+  
+    margin-top: 49px;
+  }
+  .card-content .card-progress-container .card-progress-count{
+    opacity: 1;
+    margin-left: 12px;
+    font-size: 22px;
+  }
+  .card-content .card-progress-container .card-progress-bar{
+  height: 14px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .25);
+  overflow: hidden;
+  border-radius: 14px;
+  }
+  .card-content .card-progress-container .card-progress-bar .card-progress-current{
+    width: var(--current);
+    height: 100%;
+  }
+  .card-content .card-progress-container .card-progress-bar .card-progress-current div {
+    background-color: #fff;
+    border-radius: 14px;
+    height: 100%;
+    width: 100%;
+    animation: progress-fade 1s ease-in-out both;
+  }
+  @keyframes progress-fade {
+    from{
+      width: 0;
+    }
+    to{
+      width: 100%;
+    }
+  }
+  .list-container li:nth-child(1) .card-content .card-progress-container .card-progress-bar .card-progress-current div{
+    animation-delay: .75s;
+  }
+  .list-container li:nth-child(2) .card-content .card-progress-container .card-progress-bar .card-progress-current div{
+    animation-delay: 1.5s;
+  }
+  .list-container li:nth-child(3) .card-content .card-progress-container .card-progress-bar .card-progress-current div{
+    animation-delay: 2.25s;
+  }
+
+  .icon {
+    color: rgb(161, 16, 28);
+
+  }
+  .fa{
+    color: rgb(161, 16, 28);
+
+  }

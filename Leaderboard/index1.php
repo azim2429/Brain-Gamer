@@ -31,7 +31,7 @@
         <th class="sp">Points</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="">
       <tr>
       <?php
     include '..\Authentication\connect_db.php';
