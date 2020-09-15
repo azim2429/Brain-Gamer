@@ -396,6 +396,11 @@ if (isset($_SESSION['fname'])) {
       document.getElementById('bdates').innerHTML = "**Please fill Your Birthday";
       return false;
     } else {
+      $(document).ready(function () {
+    setTimeout(function(){
+        $('#all_time').fadeIn(500);
+    }, 200);
+});
       document.getElementById('a_details').style.display = "block";
       document.getElementById('p_details').style.display = "none";
     }
@@ -440,6 +445,11 @@ if (isset($_SESSION['fname'])) {
       return false;
     } else {
       document.getElementById('cpass').innerHTML = "";
+      $(document).ready(function () {
+    setTimeout(function(){
+        $('#all_time').fadeIn(500);
+    }, 200);
+});
       document.getElementById('photo').style.display = 'block';
       document.getElementById('login').style.display = "none";
     }
@@ -460,6 +470,11 @@ if (isset($_SESSION['fname'])) {
   });
 
   function done() {
+    $(document).ready(function () {
+    setTimeout(function(){
+        $('#all_time').fadeIn(500);
+    }, 200);
+});
     document.getElementById('photo').style.display = 'none';
     document.getElementById('done').style.display = 'block';
   }
@@ -696,14 +711,28 @@ if (isset($_SESSION['fname'])) {
 
 
   }
+  @keyframes fadeOut {
+        from {
+            opacity: 0.8;
+        }
 
+        to {
+            opacity: 1;
+        }
+  }
   #done,
   #photo {
     display: none;
+    animation-name: fadeOut;
+        animation-duration: 1s;
+        animation-timing-function: linear;
   }
 
   #a_details {
     display: none;
+    animation-name: fadeOut;
+        animation-duration: 1s;
+        animation-timing-function: linear;
   }
 
   #logo_dark {

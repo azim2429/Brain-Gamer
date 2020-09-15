@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-      include '..\Authentication\connect_db.php';
-        $name = $_GET['name'];
-        $game_type  = $_GET['type'];
-        $game_id  = $_GET['id'];
-      if(isset($_GET["continue"])){ 
-        $points=$_GET['points'];
-        $accuracy=$_GET['accuracy'];
-        
-        $query="insert into user_stats(game_id,name,game_type,points,accuracy) values('$game_id','$name','$game_type','$points','$accuracy')";
-        $res=mysqli_query($conn, $query);
-      }
-      ?>
+
 <head>
   <meta charset="UTF-8">
   <title>Whack A Mole!</title>
@@ -36,7 +24,7 @@
     </div>
     <div id="end" class="end" style="text-align: center;">
       <h1>Your Points:</h1>
-      <form action="index.php" method="GET">
+      <form action="index.php" method="POST">
       
       <h2 style="font-family: arial;"><input name="points" id="f_score" style="background: none;border:none;font-size:2rem;width:8%" ></h2><br>
       <h3 id="a1" style="font-family: arial">Too Bad!Please try again.</h3><br>
@@ -50,7 +38,22 @@
       
       <button type="submit" name="continue" class="button">Continue</button>
       </form>
+      <?php 
+      include '..\Authentication\connect_db.php';
       
+      
+      if(isset($_POST["continue"])){ 
+        $gamer_id =  $_SESSION['gamer_id'];
+        $uname = $_SESSION['uname'];
+        $points=$_POST['points'];
+        $accuracy=$_POST['accuracy'];
+        $name = "Whack A Mole!";
+        $game_type  = "Speed";
+        $game_id  = 1;
+        $query="insert into user_stats(gamer_id,uname,game_id,name,game_type,points,accuracy) values('$gamer_id','$uname','$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
     </div>
     <div id="body" class="body">
       <span class="score">0</span><label class="l_score">Score:</label>
@@ -104,6 +107,7 @@
     <p id="p1">When you train your brain to be able to take in information faster, <br>other areas of your brain will also improve such as your memory.</p>
   </div>
 </body>
+
 <script>
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
@@ -359,7 +363,7 @@
   .display {
     position: absolute;
     top: 40%;
-    left: 24%;
+    left:25%;
    
   }
 

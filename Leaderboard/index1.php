@@ -28,146 +28,62 @@
       <tr>
         <th class="rank">Rank </th>
         <th class="name">Username</th>
-        <th class="sp">Score</th>
-        <!-- <th class="kd"></th> -->
+        <th class="sp">Points</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="rank">1</td>
-        <td class="name">Sc0utOP</td>
-        <td class="sp">6308</td>
+      <?php
+    include '..\Authentication\connect_db.php';
+    $s_query = "select sum(points) as points,uname from user_stats group by gamer_id order by points DESC";
+		$s_res = mysqli_query($conn,$s_query);
+		while ($s_row = mysqli_fetch_array($s_res)) {
+      $uname = $s_row['uname'];
+      $points = $s_row['points'];
+    
+      ?>
+       <td class="rank">1</td>
+        <td class="name"><?php echo $uname?></td>
+        
+        <td class="sp"><?php echo $points?></td>
         
       </tr>
-      <tr>
-        <td class="rank">2</td>
-        <td class="name">MortaL</td>
-        <td class="sp">6201</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">4</td>
-        <td class="name">CarryMinati</td>
-        <td class="sp">5308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">5</td>
-        <td class="name">Bot</td>
-        <td class="sp">5108</td>
-       
-      </tr>
-      <tr>
-        <td class="rank">6</td>
-        <td class="name">Nick</td>
-        <td class="sp">4508</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">7</td>
-        <td class="name">Jamie</td>
-        <td class="sp">4108</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">8</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">9</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">10</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">100</td>
-        <td class="name">Yours</td>
-        <td class="sp">4008</td>
-        
-      </tr>
+      <?php } ?>
     </tbody>
     
   </table>
   </div>
   <div  id="speed">
-  <table >
-    <thead >
+  <table>
+    <thead>
       <tr>
+    
         <th class="rank">Rank </th>
         <th class="name">Username</th>
         <th class="sp">Score</th>
-        <!-- <th class="kd"></th> -->
+        
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="rank">1</td>
-        <td class="name">Sc0utOP</td>
-        <td class="sp">6308</td>
+      <?php
+      
+    include '..\Authentication\connect_db.php';
+    $s_query = "select sum(points) as points,uname from user_stats where game_type='Speed' group by gamer_id order by points DESC";
+		$s_res = mysqli_query($conn,$s_query);
+		while ($s_row = mysqli_fetch_array($s_res)) {
+      $uname = $s_row['uname'];
+      $points = $s_row['points'];
+    
+      ?>
+       <td class="rank">1</td>
+        <td class="name"><?php echo $uname?></td>
+        
+        <td class="sp"><?php echo $points?></td>
         
       </tr>
-      <tr>
-        <td class="rank">2</td>
-        <td class="name">MortaL</td>
-        <td class="sp">6201</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">4</td>
-        <td class="name">CarryMinati</td>
-        <td class="sp">5308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">5</td>
-        <td class="name">Bot</td>
-        <td class="sp">5108</td>
-       
-      </tr>
-      <tr>
-        <td class="rank">6</td>
-        <td class="name">Nick</td>
-        <td class="sp">4508</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">7</td>
-        <td class="name">Jamie</td>
-        <td class="sp">4108</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">8</td>
-        <td class="name">Mar</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">9</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">10</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">100</td>
-        <td class="name">Yours</td>
-        <td class="sp">4008</td>
-        
-      </tr>
+      <?php } ?>
+      
     </tbody>
     
   </table>
@@ -184,65 +100,24 @@
     </thead>
     <tbody>
       <tr>
-        <td class="rank">1</td>
-        <td class="name">Sc0utOP</td>
-        <td class="sp">6308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">2</td>
-        <td class="name">MortaL</td>
-        <td class="sp">6201</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">4</td>
-        <td class="name">CarryMinati</td>
-        <td class="sp">5308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">5</td>
-        <td class="name">Bot</td>
-        <td class="sp">5108</td>
-       
-      </tr>
-      <tr>
-        <td class="rank">6</td>
-        <td class="name">Nick</td>
-        <td class="sp">4508</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">7</td>
-        <td class="name">Jamie</td>
-        <td class="sp">4108</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">8</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">9</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">10</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">100</td>
-        <td class="name">Yours</td>
-        <td class="sp">4008</td>
-        
-      </tr>
+      <?php
+      
+      include '..\Authentication\connect_db.php';
+      $s_query = "select sum(points) as points,uname from user_stats where game_type='Memory' group by gamer_id order by points DESC";
+      $s_res = mysqli_query($conn,$s_query);
+      while ($s_row = mysqli_fetch_array($s_res)) {
+        $uname = $s_row['uname'];
+        $points = $s_row['points'];
+      
+        ?>
+         <td class="rank">1</td>
+          <td class="name"><?php echo $uname?></td>
+          
+          <td class="sp"><?php echo $points?></td>
+          
+        </tr>
+        <?php } ?>
+      
     </tbody>
     
   </table>
@@ -259,65 +134,23 @@
     </thead>
     <tbody>
       <tr>
-        <td class="rank">1</td>
-        <td class="name">Sc0utOP</td>
-        <td class="sp">6308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">2</td>
-        <td class="name">MortaL</td>
-        <td class="sp">6201</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">4</td>
-        <td class="name">CarryMinati</td>
-        <td class="sp">5308</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">5</td>
-        <td class="name">Bot</td>
-        <td class="sp">5108</td>
-       
-      </tr>
-      <tr>
-        <td class="rank">6</td>
-        <td class="name">Nick</td>
-        <td class="sp">4508</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">7</td>
-        <td class="name">Jamie</td>
-        <td class="sp">4108</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">8</td>
-        <td class="name">Mar</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">9</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">10</td>
-        <td class="name">Mark</td>
-        <td class="sp">4008</td>
-        
-      </tr>
-      <tr>
-        <td class="rank">100</td>
-        <td class="name">Yours</td>
-        <td class="sp">4008</td>
-        
-      </tr>
+      <?php
+      
+      include '..\Authentication\connect_db.php';
+      $s_query = "select sum(points) as points,uname from user_stats where game_type='Attention' group by gamer_id order by points DESC";
+      $s_res = mysqli_query($conn,$s_query);
+      while ($s_row = mysqli_fetch_array($s_res)) {
+        $uname = $s_row['uname'];
+        $points = $s_row['points'];
+      
+        ?>
+         <td class="rank">1</td>
+          <td class="name"><?php echo $uname?></td>
+          
+          <td class="sp"><?php echo $points?></td>
+          
+        </tr>
+        <?php } ?>
     </tbody>
     
   </table>
@@ -474,6 +307,8 @@ height: 85vh;
     display: block;
     
   }
+  
+    
   #memory{
     display: none;
   }

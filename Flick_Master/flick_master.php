@@ -51,15 +51,32 @@
             <!-- for game over -->
             <div id='gameOver' style="display:none">
             <div style=" color: brown;">Game Over</div>
-                <div style="color: black;font-weight:bold;font-size:24px">Points:</div>
-                <div style="color: black;font-weight:bold;font-size:24px">Score:</div>
-                <div style="color: black;font-weight:bold;font-size:24px">Accuracy: </div>
-               
+            <form action="flick_master.php" method="POST">
+                <div style="color: black;font-weight:bold;font-size:24px">Points:<input id="points"  name="points" style="background: none;border:none;font-size:3vh;width:5%"></div>
                 
-                <button style="color: black;" id='backBtn'>Continue</button>
+                <div style="color: black;font-weight:bold;font-size:24px">Accuracy:<input id="accu" name="accuracy" style="background: none;border:none;font-size:3vh;width:6%">%</div>
+                <div>Score:</div>
+                
+                <button name="continue" style="color: black;" id='backBtn'>Continue</button>
+            </form>
             </div>
         </div>
-
+        <?php 
+      include '..\Authentication\connect_db.php';
+      
+      
+      if(isset($_POST["continue"])){ 
+        $gamer_id =  $_SESSION['gamer_id'];
+        $uname = $_SESSION['uname'];
+        $points=$_POST['points'];
+        $accuracy=$_POST['accuracy'];
+        $name = "Flicker Master!";
+        $game_type  = "Attention";
+        $game_id  = 2;
+        $query="insert into user_stats(gamer_id,uname,game_id,name,game_type,points,accuracy) values('$gamer_id','$uname','$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
        
 
     </section>
@@ -319,9 +336,9 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
     document.addEventListener('keydown', checkAnswer);
     
     var myGameOver = document.querySelector(gameOver);
-    var myPoints = document.querySelector(gameOver+' :nth-child(2)');
+    
     var myScore = document.querySelector(gameOver+' :nth-child(3)');
-    var myAccuracy = document.querySelector(gameOver+' :nth-child(4)');
+    
     
     var myBackBtn = document.querySelector(backBtn);
     
@@ -343,13 +360,14 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
             myArrow.style.display = 'none'
             myGameOver.style.display = "block";
             points = parseInt(correct * 2.5);
-            myPoints.innerHTML = "Points:    " + points;
-            myScore.innerHTML = "Score:    " + correct;
+            document.getElementById("points").value = points;
+            myScore.innerHTML = "Scores:    " + correct;
             
             if (correct + incorrect == 0)
-                myAccuracy.innerHTML = "Accuracy:    -";
+            document.getElementById("accu").value = '0';
             else
-                myAccuracy.innerHTML = "Accuracy:    " + (correct / (correct + incorrect) * 100).toPrecision(3) + " %";
+            acc =  (correct / (correct + incorrect) * 100).toPrecision(3);
+            document.getElementById("accu").value = acc;
             
         }
     

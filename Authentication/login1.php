@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $_SESSION['fname'] = $row['fname'];
   $_SESSION['lname'] = $row['lname'];
   $_SESSION['uname'] = $row['uname'];
+  $_SESSION['gamer_id'] = $row['gamer_id'];
   $_SESSION['uphoto'] = base64_encode($row['uphoto']);
 
   $count = mysqli_num_rows($result);

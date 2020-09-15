@@ -1,3 +1,8 @@
+<?php 
+
+session_start();
+ $name =  $_SESSION['gamer_id'];
+echo $name ?>
 <form action="add.php" method="post" enctype="multipart/form-data">
     <label>Select Image File:</label>
     <input type="file" name="images">
