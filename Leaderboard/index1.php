@@ -10,14 +10,8 @@
     <title>Leaderboard</title>
 </head>
 <body>
-<<<<<<< HEAD
-
-
-<div class="leaderboard">
-=======
 <?php include "..\Common\av_bar.php" ?>
 <div id="leaderboard" class="leaderboard">
->>>>>>> 45fec92e8dcc5846bac86a0a736cd2bd1635e011
   <header>
     <h1>Leader Board</h1>
     <div class="nav">
@@ -38,7 +32,7 @@
         <!-- <th class="kd"></th> -->
       </tr>
     </thead>
-    <tbody>
+    <tbody style="">
       <tr>
         <td class="rank">1</td>
         <td class="name">Sc0utOP</td>
