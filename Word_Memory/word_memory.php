@@ -244,7 +244,7 @@
     var count = 0;
     var score = 0;
     var myTimer = document.getElementById('timer');
-    var time = 20;
+    var time = 10;
     var start = document.getElementById('start_game');
 
     function startGame() {

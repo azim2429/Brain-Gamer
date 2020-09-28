@@ -152,7 +152,7 @@
     var f_score = document.getElementById('f_score');
     var end = document.getElementById('end');
     var start = document.getElementById('start_button');
-    var count = parseFloat("30")
+    var count = parseFloat("10")
     var timer = setInterval(function() {
       document.getElementById('time').innerHTML = count;
 

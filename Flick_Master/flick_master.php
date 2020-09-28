@@ -292,7 +292,7 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
     var myArrow = document.querySelector(arrow);
     var myTimer = document.querySelector(timer);
     var myTime = document.querySelector(timer);
-    var gameTime = 30;
+    var gameTime = 10;
     var time = gameTime;
     myTimer.innerHTML = "TIME: " + time;
     
