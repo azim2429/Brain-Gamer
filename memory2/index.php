@@ -9,6 +9,9 @@
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker" >
     <link rel="stylesheet" href="../memory2/mem.css">
+
+    <!-- php include "..\Common\icon.php" ?>
+   include "..\Common\av_bar.php" ?>  -->
 </head>
 <body>
 
@@ -16,6 +19,10 @@
         <header>
             <h1>Memory Game</h1>
         </header>
+
+        <a class="a_game" href="../Game/index.php">
+    <i style="position:absolute;top:16%;left:10%" id="fa" class="fa fa-long-arrow-left">All  Games</i></a>
+  <div class="main">
 
         <section class="score-panel">
         	<ul class="stars">
