@@ -9,12 +9,45 @@ body {
 #container{
     position: relative;
     height: 90vh;
+    padding-top: 2rem;
     width: 25%;
     left: 55%;
     margin-top: 20px;;
     background-color: #292929;
     overflow: hidden;
 }
+
+#start_button {
+    position: absolute;
+    top:400px;
+    left: 250px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+        background: white;
+        padding: 10px 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border-color: red;
+        color: red;
+        border-radius: 1rem;
+    margin: 2rem;
+  }
+
+  .button:hover {
+    background: red;
+        color: white;
+        border-color: red;
+        transition: 0.2s ease-in;
+  }
+  .play {
+    position: absolute;
+    top: 18%;
+    right: 2%;
+    padding: 2rem;
+
+  }
+
 .line{
     position: absolute;
     height: 150px;
@@ -158,11 +191,18 @@ body {
     margin-top: 20%;
     margin-left: 10%;
     font-size: 35px;
-    background-color: white;
+    background-color: #26c5ff;
     color: #454545;
     padding: 10px;
     box-shadow: 4px 4px 0px 1px #808080;
 }
+/* #score
+{
+ color: #292929;
+} */
 #help{
-	text-align: center;
+    text-align: center;
+    color: black;
 }
+
+

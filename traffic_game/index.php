@@ -4,11 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Traffic Racer</title>
-    <link href="traffic.css" rel="stylesheet" />
+    <?php include "..\Common\icon.php" ?>
+  <?php include "..\Common\av_bar.php" ?>
+    <link rel="stylesheet" href="traffic.css">
  </head>
 
 <body>
-    <div id="help">
+
+<a class="a_game" href="../Game/index.php">
+    <i style="position:absolute;top:16%;left:10%" id="fa" class="fa fa-long-arrow-left">All  Games</i></a>
+  <div class="main">
+    <!-- <div id="display" class="display">
+      <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;text-align:center">Whack-a-mole!</h1> -->
+
+
+      <button onclick="howPlay()" class="button">How To Play?</button>
+      <button id="start_button" class="button" onclick="startGame()">Start !!</button>
+    </div>
+
+
+
+ <div id="help">
         <p>Controls: Right, Left, Up & Down arrow keys.</p>
     </div>
     <div id="score_div">
@@ -65,8 +81,7 @@
                 <small class="small_text">(press Enter)</small>
             </button>
         </div>
-    </div>
-    
+  
 
     <script src="jmin.js"></script>
     <script src="traf.js"></script>

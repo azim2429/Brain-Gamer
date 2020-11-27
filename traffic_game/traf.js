@@ -40,6 +40,8 @@ $(function() {
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
 
     /* Move the cars */
+
+
     $(document).on('keydown', function(e) {
         if (game_over === false) {
             var key = e.keyCode;

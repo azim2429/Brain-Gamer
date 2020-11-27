@@ -1,7 +1,11 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <title>Catch The Eggs</title>
+  <?php include "..\Common\icon.php" ?>
+  <?php include "..\Common\av_bar.php" ?>
   <link href="egg.css" rel="stylesheet" />
 </head>
 
