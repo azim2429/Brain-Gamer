@@ -1,3 +1,4 @@
+function startGame(){
 $(function() {
 
     var anim_id;
@@ -11,11 +12,12 @@ $(function() {
     var line_1 = $('#line_1');
     var line_2 = $('#line_2');
     var line_3 = $('#line_3');
-    var restart_div = $('#restart_div');
+    var restart_div = $("#restart_div");
     var restart_btn = $('#restart');
     var score = $('#score');
-    var high_score = localStorage.getItem('high_score');
-    $('#high_score').text(high_score);
+    var high_score = $('high_score');
+    var hide=document.getElementById("hide");
+    hide.style.display = "none";
 
     //saving some initial setup
     var container_left = parseInt(container.css('left'));
@@ -114,9 +116,12 @@ $(function() {
         }
 
         score_counter++;
-
+        high_score = score_counter/100;
+        document.getElementById('accuracy').value = high_score;
+        document.getElementById('points').value = parseInt(high_score*2.5, 10);
         if (score_counter % 20 == 0) {
-            score.text(parseInt(score.text()) + 1);
+            score.text(parseInt(score.text())+1);
+            
         }
         if (score_counter % 500 == 0) {
             speed++;
@@ -152,10 +157,6 @@ $(function() {
         line.css('top', line_current_top + line_speed);
     }
 
-    restart_btn.click(function() {
-        location.reload();
-    });
-
     function stop_the_game() {
         game_over = true;
         cancelAnimationFrame(anim_id);
@@ -165,17 +166,8 @@ $(function() {
         cancelAnimationFrame(move_down);
         restart_div.slideDown();
         restart_btn.focus();
-        setHighScore();
+        $('#high_score').text(high_score + "%");
     }
-
-    function setHighScore() {
-        if (high_score < parseInt(score.text())) {
-            high_score = parseInt(score.text());
-            localStorage.setItem('high_score', parseInt(score.text()));
-        }
-        $('#high_score').text(high_score);
-    }
-
     /* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
 
 
@@ -204,7 +196,7 @@ $(function() {
 
 
 
-
+}
 
 
 

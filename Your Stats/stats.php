@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
+    <?php include "..\Common\icon.php" ?>
     <title>Your Stats</title>
 </head>
 <?php
@@ -93,7 +93,7 @@ while ($t_row = mysqli_fetch_array($t_res)) {
   <?php
 
     $gamer_id =  $_SESSION['gamer_id'] ;
-    $p_query = "select * from user_stats  where gamer_id = $gamer_id group by name order by points DESC";
+    $p_query = "select max(points) as points,name,gamer_id from user_stats where gamer_id = $gamer_id  group by name order by points DESC";
     $p_res = mysqli_query($conn,$p_query);
     while ($p_row = mysqli_fetch_array($p_res)) {
     $p_acc = $p_row['points'];
@@ -265,7 +265,7 @@ while ($t_row = mysqli_fetch_array($t_res)) {
 	 position: relative;
    top:40rem;
    left: 9rem;
-	 transition: width 2s, background 0.2s;
+	 transition: width 3s, background 2s;
 	 clear: both;
 }
  .bar:nth-of-type(2n) {

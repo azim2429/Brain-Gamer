@@ -14,12 +14,12 @@
 <body>
     <?php include "..\Common\av_bar.php" ?>
     <?php
-  include '..\Authentication\connect_db.php';
-  $gamer_id =  $_SESSION['gamer_id'];
-  $query = "select * from user_registration where gamer_id= $gamer_id";
-  $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
-  $row = mysqli_fetch_array($res);
-  ?>
+    include '..\Authentication\connect_db.php';
+    $gamer_id =  $_SESSION['gamer_id'];
+    $query = "select * from user_registration where gamer_id= $gamer_id";
+    $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $row = mysqli_fetch_array($res);
+    ?>
 
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
@@ -323,19 +323,20 @@
         letter-spacing: 1px;
 
     }
+
     ::-webkit-scrollbar {
-    width: 4px;
-    height: 15px;
-}
+        width: 4px;
+        height: 15px;
+    }
 
-::-webkit-scrollbar-track-piece  {
-    background-color:#bdc3c7;
-}
+    ::-webkit-scrollbar-track-piece {
+        background-color: #bdc3c7;
+    }
 
-::-webkit-scrollbar-thumb:vertical {
-    height: 30px;
-    background-color: #e74c3c;
-}
+    ::-webkit-scrollbar-thumb:vertical {
+        height: 30px;
+        background-color: #e74c3c;
+    }
 
     .leader {
         float: right;

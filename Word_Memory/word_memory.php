@@ -101,7 +101,7 @@
         .button {
             border: 2px solid;
             background: white;
-            padding: 7px 7px;
+            padding: 7px 7px 7px 7px;
             font-size: 20px;
             cursor: pointer;
             border-color: red;
@@ -149,7 +149,8 @@
             padding: 1rem;
 
         }
-        a{
+
+        a {
             color: white;
             font-size: 20px;
         }
@@ -172,9 +173,9 @@
         }
     </style>
 </head>
-
+<?php include "..\Common\av_bar.php" ?>
 <body>
-    <?php include "..\Common\av_bar.php" ?>
+    
     <a class="a_game" href="../Game/index.php">
         <i style="position:absolute;top:16%;left:10%;color:black" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
     <div class="body">
@@ -217,9 +218,28 @@
 
             <input type="text" placeholder="answer" style="color:black" id="answer">
             <div id="feedback" style="font-size:22px"></div>
-            <button class='button'  style="padding-right: 1.5rem;font-size:20px" id="restart">Continue</button>
+            <form action="word_memory.php" method="POST">
+                <input id="score" name="points" style="display:none">
+                <input id="accuracy" name="accuracy" style="display:none">
+                <button type="submit" name="continue" class='button' style=font-size:20px" id="restart">Continue</button>
+            </form>
         </div>
-
+        <?php 
+      include '..\Authentication\connect_db.php';
+      
+      
+      if(isset($_POST["continue"])){ 
+        $gamer_id =  $_SESSION['gamer_id'];
+        $uname = $_SESSION['uname'];
+        $points=$_POST['points'];
+        $accuracy=$_POST['accuracy'];
+        $name = "Word Memory!";
+        $game_type  = "Memory";
+        $game_id  = 2;
+        $query="insert into user_stats(gamer_id,uname,game_id,name,game_type,points,accuracy) values('$gamer_id','$uname','$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
     </div>
     <div class="play">
         <h1 id="h1" style="font-family: cursive;color:black">Word Memory</h1>
@@ -320,8 +340,11 @@
                     $('#showWords').text('score: ' + score + '/' + maxWords);
                     $('#answer').css('display', 'none');
                     $('#restart').css('display', 'block');
+                    document.getElementById("score").value = score*5;
+                    document.getElementById("accuracy").value = (score / 10) * 100;
                 }
                 $('#answer').val('');
+
             }
         })
 
@@ -380,27 +403,27 @@
 
 </html>
 <script>
-  var mode = localStorage.getItem("mode");
-  console.log(mode);
+    var mode = localStorage.getItem("mode");
+    console.log(mode);
 
-  if (mode == "day") {
-    localStorage.setItem("mode1", "day");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
-  if (mode == "night") {
-    
-    document.body.style.backgroundColor = "#191970";
-    var h1 = document.getElementById('h1');
-    var p1 = document.getElementById('p1');
-    var p = document.getElementById('p');
-    var fa = document.getElementById('fa');
-    h1.style.color = "white";
-    p1.style.color = "white";
-    p.style.color = "white";
-    fa.style.color = "white";
-    localStorage.setItem("mode1", "night");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
+    if (mode == "day") {
+        localStorage.setItem("mode1", "day");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+    }
+    if (mode == "night") {
+
+        document.body.style.backgroundColor = "#191970";
+        var h1 = document.getElementById('h1');
+        var p1 = document.getElementById('p1');
+        var p = document.getElementById('p');
+        var fa = document.getElementById('fa');
+        h1.style.color = "white";
+        p1.style.color = "white";
+        p.style.color = "white";
+        fa.style.color = "white";
+        localStorage.setItem("mode1", "night");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+    }
 </script>

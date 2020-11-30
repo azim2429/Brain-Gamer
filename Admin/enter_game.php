@@ -10,6 +10,8 @@ echo $name ?>
     <input type="text" name="name">
     <input type="text" name="game_desc">
     <input type="text" name="game_type">
+    <input type="text" name="link">
+    <input type="text" name="game_id">
     
     <input type="submit" name="submit" value="Upload">
 </form>

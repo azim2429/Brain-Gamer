@@ -10,8 +10,7 @@
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker" >
     <link rel="stylesheet" href="../memory2/mem.css">
 
-    <!-- php include "..\Common\icon.php" ?>
-   include "..\Common\av_bar.php" ?>  -->
+    
 </head>
 <body>
 

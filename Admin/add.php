@@ -9,6 +9,8 @@ if(isset($_POST["submit"])){
     $name=$_POST['name'];
     $game_desc=$_POST['game_desc'];
     $game_type=$_POST['game_type'];
+    $link=$_POST['link'];
+    $game_id=$_POST['game_id'];
     
     $status = 'error'; 
     
@@ -16,7 +18,7 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image)); 
          
             // Insert image content into database 
-            $insert = $conn->query("Insert into game_image (image,name,game_desc,game_type) VALUES ('$imgContent','$name','$game_desc','$game_type')"); 
+            $insert = $conn->query("Insert into game_image (game_id,image,name,game_desc,game_type,link) VALUES ('$game_id','$imgContent','$name','$game_desc','$game_type','$link')"); 
              
             if($insert){ 
                 $status = 'success'; 

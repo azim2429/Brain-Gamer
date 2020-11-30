@@ -51,12 +51,12 @@ while ($a_row = mysqli_fetch_array($a_res)) {
 	 <div class="sidenav">
         <a href="#">Attention</a>
         <a href="#">Speed</a>
-        <a href="#">Memory</a>
+        <a href="#">Memory</a>s
         <a href="#">Co-ordination</a>
         <a href="#">Overall</a>
 
       </div>
-               <!-- END SIDE NAV -->
+         l̥      <!-- END SIDE NAV -->
 	<div id="content">
 		
 		<ul id="bar">
