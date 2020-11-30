@@ -51,7 +51,7 @@ if (isset($_REQUEST['logout'])) {
             <?php } else if (isset($_SESSION['uphoto'])) { ?>
                 <form action="" method="POST">
                     <a>
-                        <li><button name=logout class="login-button">Logout</button></li>
+                        <li><button name=logout class="login-button" style="color:white;">Logout</button></li>
                     </a>
                 </form>
                 <a href="..\Authentication\profile.php">
@@ -84,7 +84,7 @@ if (isset($_REQUEST['logout'])) {
     * {
         margin: 0;
         padding: 0;
-        color: #f2f5f7;
+        
         scroll-behavior: smooth;
         letter-spacing: 1px;
     }

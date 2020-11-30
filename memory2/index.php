@@ -13,7 +13,8 @@
     
 </head>
 <body>
-
+<?php include "..\Common\icon.php" ?>
+    <?php include "..\Common\av_bar.php" ?>
     <div class="container">
         <header>
             <h1>Memory Game</h1>
@@ -111,6 +112,8 @@
         </div>
 
     </div>
+    </div>
+    
     <script src="../memory2/mem.js"></script>
 </body>
 </html>
