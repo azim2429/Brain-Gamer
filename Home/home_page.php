@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,12 +13,18 @@
 
 <body>
     <?php include "..\Common\av_bar.php" ?>
-    
+    <?php
+  include '..\Authentication\connect_db.php';
+  $gamer_id =  $_SESSION['gamer_id'];
+  $query = "select * from user_registration where gamer_id= $gamer_id";
+  $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
+  $row = mysqli_fetch_array($res);
+  ?>
 
     <div class="page-wrapper">
         <div style="position:absolute;top:35%;left:20%;">
-            <?php if (isset($_SESSION['fname'])) { ?>
-                <h1 style="font-size: 4rem;">Welcome <?php echo $_SESSION['fname'] ?> <?php echo $_SESSION['lname'] ?></h1>
+            <?php if (isset($_SESSION['gamer_id'])) { ?>
+                <h1 style="font-size: 4rem;">Welcome <?php echo $row['fname'] ?> <?php echo $row['lname'] ?></h1>
                 <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
             <?php } ?>
             <?php if (!isset($_SESSION['fname'])) { ?>
@@ -318,6 +323,19 @@
         letter-spacing: 1px;
 
     }
+    ::-webkit-scrollbar {
+    width: 4px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track-piece  {
+    background-color:#bdc3c7;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 30px;
+    background-color: #e74c3c;
+}
 
     .leader {
         float: right;

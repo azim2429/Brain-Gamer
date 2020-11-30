@@ -8,6 +8,13 @@ if (isset($_REQUEST['logout'])) {
     header("Location:..\Authentication\login1.php");
 }
 ?>
+<?php
+  include '..\Authentication\connect_db.php';
+  $gamer_id =  $_SESSION['gamer_id'];
+  $query = "select * from user_registration where gamer_id= $gamer_id";
+  $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
+  $row = mysqli_fetch_array($res);
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +39,7 @@ if (isset($_REQUEST['logout'])) {
         <ul class="nav-links">
             <li><a href="../Home/home_page.php">Home</a></li>
             <li><a href="../Game/index.php">Our Games</a></li>
-            <li><a href="../Your Stats/graph.php">Your Stats</a></li>
+            <li><a href="../Your Stats/stats.php">Your Stats</a></li>
             <li><a href="..\Admin\enter_game.php">Insights</a></li>
             <?php if (!isset($_SESSION['uphoto'])) { ?>
                 <a href="..\Authentication\login1.php">
@@ -47,10 +54,10 @@ if (isset($_REQUEST['logout'])) {
                         <li><button name=logout class="login-button">Logout</button></li>
                     </a>
                 </form>
-                <a>
-                    <li><button class="join-button"><?php echo $_SESSION['uname'] ?></button></li>
+                <a href="..\Authentication\profile.php">
+                    <li><button  class="join-button"><?php echo $row['uname'] ?></button></li>
                 </a>
-                <img class="uphoto" src="data:image/jpg;charset=utf8;base64,<?php echo $_SESSION['uphoto'] ?>" onerror="this.onerror=null;this.src='../Images/alt.png';" style="width: 5%;height:65%;border-radius:50%">
+                <img class="uphoto" src="data:image/jpg;charset=utf8;base64,<?php echo $row['uphoto'] ?>" onerror="this.onerror=null;this.src='../Images/alt.png';" style="width: 5%;height:65%;border-radius:50%">
             <?php } ?>
         </ul>
     </nav>

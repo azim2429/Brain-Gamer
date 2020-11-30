@@ -1,6 +1,7 @@
 <?php 
 
 session_start();
+
  $name =  $_SESSION['gamer_id'];
 echo $name ?>
 <form action="add.php" method="post" enctype="multipart/form-data">
@@ -12,3 +13,4 @@ echo $name ?>
     
     <input type="submit" name="submit" value="Upload">
 </form>
+
