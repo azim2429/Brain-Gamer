@@ -19,7 +19,16 @@
 <?php include "..\Common\av_bar.php" ?>
     <?php include "..\Common\preloader.php" ?>
 
+     <a class="a_game" href="../Game/index.php">
+    <i style="position:absolute;top:16%;left:10%" id="fa" class="fa fa-long-arrow-left">All Games</i></a> 
+  <!-- <div class="main">
+    <div id="display" class="display">
+      <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;text-align:center">Whack-a-mole!</h1>
 
+
+      <button onclick="howPlay()" class="button">How To Play?</button>
+      <button id="start_button" class="button" onclick="startGame()">Start!</button>
+    </div> --> -->
 
 
   <section class="memory-game">
