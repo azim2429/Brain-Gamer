@@ -194,26 +194,26 @@ function check() {
     winGame();
   }
 
-  if (good == false) {
-    flashColor();
-    turnCounter.innerHTML = "NO!";
-    setTimeout(() => {
-      turnCounter.innerHTML = turn;
-      clearColor();
+  // if (good == false) {
+  //   flashColor();
+  //   turnCounter.innerHTML = "NO!";
+  //   setTimeout(() => {
+  //     turnCounter.innerHTML = turn;
+  //     clearColor();
 
-      if (strict) {
-        play();
-      } else {
-        compTurn = true;
-        flash = 0;
-        playerOrder = [];
-        good = true;
-        intervalId = setInterval(gameTurn, 800);
-      }
-    }, 800);
+  //     if (strict) {
+  //       play();
+  //     } else {
+  //       compTurn = true;
+  //       flash = 0;
+  //       playerOrder = [];
+  //       good = true;
+  //       intervalId = setInterval(gameTurn, 800);
+  //     }
+  //   }, 800);
 
-    noise = false;
-  }
+  //   noise = false;
+  // }
 
   if (turn == playerOrder.length && good && !win) {
     turn++;
