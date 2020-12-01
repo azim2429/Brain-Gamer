@@ -1,16 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <title>Catch The Eggs</title>
-  <?php include "..\Common\icon.php" ?>
-  
   <link href="egg.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="container">
+<?php include "..\Common\icon.php" ?>
+    <?php include "..\Common\av_bar.php" ?>
+  <div id="container" style="position:absolute;top:10rem">
 
     <div id="score_help"> Score:
       <span id="score">0</span> | Life:
@@ -35,10 +33,33 @@
       <span id="score_1"></span>
     </div>
 
+
     <div id="floor"></div>
+    <form action="index.php" method="POST">
+      <input class="" name="points" id="points" style="display: none;">
+      <input class="" name="accuracy" id="accuracy" style="display: none;">
+      <button name="continue" type="submit" id="restart">Continue</button>
+    </form>
+    <?php 
+      include '..\Authentication\connect_db.php';
+      
+      
+      if(isset($_POST["continue"])){ 
+        $gamer_id =  $_SESSION['gamer_id'];
+        $uname = $_SESSION['uname'];
+        $points=$_POST['points'];
+        $accuracy=$_POST['accuracy'];
+        $name = "Catch The Eggs!";
+        $game_type  = "Attention";
+        $game_id  = 6;
+        $query="insert into user_stats(gamer_id,uname,game_id,name,game_type,points,accuracy) values('$gamer_id','$uname','$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
+    <div id="hide" style="display: block;">
+      <button id="start_button" class="button" onclick="startGame()">Start</button>
 
-    <button id="restart">Restart</button>
-
+    </div>
   </div>
   <script src="jmin.js"></script>
   <!-- <script src="collision_detection.js"></script>
@@ -48,3 +69,30 @@
 </body>
 
 </html>
+
+<style>
+  #start_button {
+    display: block;
+    position: absolute;
+    top: 35vh;
+    right: 80vh;
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+    background: white;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-color: red;
+    color: red;
+    border-radius: 1rem;
+    margin: 2rem;
+  }
+
+  .button:hover {
+    background: red;
+    color: white;
+    border-color: red;
+    transition: 0.2s ease-in;
+  }
+</style>

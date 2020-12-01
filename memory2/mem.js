@@ -7,6 +7,7 @@ const deck = document.getElementById("card-deck");
 
 // declaring move variable
 let moves = 0;
+
 let counter = document.querySelector(".moves");
 
 // declare variables for star icons
@@ -54,7 +55,8 @@ document.body.onload = startGame();
 
 // @description function to start a new play 
 function startGame(){
- 
+    document.getElementById('accuracy').value = '0';
+    console.log('start');
     // empty the openCards array
     openedCards = [];
 
@@ -71,6 +73,7 @@ function startGame(){
     // reset moves
     moves = 0;
     counter.innerHTML = moves;
+    
     // reset rating
     for (var i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";

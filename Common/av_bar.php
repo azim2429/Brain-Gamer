@@ -10,10 +10,7 @@ if (isset($_REQUEST['logout'])) {
 ?>
 <?php
   include '..\Authentication\connect_db.php';
-  $gamer_id =  $_SESSION['gamer_id'];
-  $query = "select * from user_registration where gamer_id= $gamer_id";
-  $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
-  $row = mysqli_fetch_array($res);
+  
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +45,11 @@ if (isset($_REQUEST['logout'])) {
                 <a href="..\Authentication\registration1.php">
                     <li><button class="join-button">Join</button></li>
                 </a>
-            <?php } else if (isset($_SESSION['uphoto'])) { ?>
+            <?php } else if (isset($_SESSION['uphoto'])) {
+                $gamer_id =  $_SESSION['gamer_id'];
+                $query = "select * from user_registration where gamer_id= $gamer_id";
+                $res = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                $row = mysqli_fetch_array($res); ?>
                 <form action="" method="POST">
                     <a>
                         <li><button name=logout class="login-button" style="color:white;">Logout</button></li>

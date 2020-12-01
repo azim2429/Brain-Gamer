@@ -1,5 +1,6 @@
 
 $(function () {
+    
 
     the_game = function () {
 
@@ -22,17 +23,18 @@ $(function () {
         }
 
         if (life > 0) {
-            anim_id = requestAnimationFrame(the_game);
+            anim_id = requestAnimationFrame(this.the_game);
         } else {
             stop_the_game();
         }
     };
-
-    anim_id = requestAnimationFrame(the_game);
-
+    
 });
 
-
+function startGame(){
+    document.getElementById('start_button').style.display = 'none';
+    anim_id = requestAnimationFrame(the_game);
+    }
 //variables
 
 var basket = $('#basket'),
@@ -145,6 +147,14 @@ function update_score() {
     }
     score_span.text(score);
     score_1.text(score);
+    if(score>30){
+        document.getElementById('points').value = score;
+        document.getElementById('accuracy').value = score*1.25;
+    }else{
+        document.getElementById('points').value = 30;
+        document.getElementById('accuracy').value = score*1.25;
+    }
+    
 }
 
 function stop_the_game() {
@@ -155,7 +165,3 @@ function stop_the_game() {
 restart.click(function () {
     location.reload();
 });
-
-
-
-
