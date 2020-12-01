@@ -69,7 +69,23 @@
 </body>
 
 </html>
-
+<script>
+        var mode = localStorage.getItem("mode");
+        console.log(mode);
+        var h1 = document.getElementById("ab_header");
+        if(mode=="day"){
+		localStorage.setItem("mode1", "day");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+	}
+        if(mode=="night"){
+        document.body.style.backgroundColor = "#191970";
+		h1.style.color = "white";
+        localStorage.setItem("mode1", "night");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+        }
+    </script>
 <style>
   #start_button {
     display: block;
@@ -94,5 +110,8 @@
     color: white;
     border-color: red;
     transition: 0.2s ease-in;
+  }
+  #container{
+    margin-bottom: 2.5rem;
   }
 </style>

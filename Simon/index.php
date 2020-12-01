@@ -34,19 +34,43 @@
     <div id="inner-circle">
       <div id="title" class="font-effect-emboss">SIMON!</div>
       <div id="switches">
-        <input type="checkbox" class="toggle" id="on">
-        <button class="button" id="start">Start</button>
-        <input type="checkbox" class="toggle" id="strict">
+      
+        
+        <button class="button"  id="start">Start</button>
+        <div style="display: none;">
+        <input type="checkbox" class="toggle" id="strict" disabled>
+        </div> 
       </div>
-      <div class="text1">
-        <span>POWER</span><span>STRICT</span>
+      <div id="pow" class="text1">
+        
       </div>
       <div id="turn"></div>
       <div class="text2">
         COUNT
       </div>
+      <form action="index.php" method="POST">
+      <input class="" name="points" id="points" style="display: none;">
+      <input class="" name="accuracy" id="accuracy" style="display: none;">
+      <button name="continue" type="submit" id="restart" style="display: none;">Continue</button>
+    </form>
     </div>
   </div>
+  <?php 
+      include '..\Authentication\connect_db.php';
+      
+      
+      if(isset($_POST["continue"])){ 
+        $gamer_id =  $_SESSION['gamer_id'];
+        $uname = $_SESSION['uname'];
+        $points=$_POST['points'];
+        $accuracy=$_POST['accuracy'];
+        $name = "Simon!!";
+        $game_type  = "Memory";
+        $game_id  = 5;
+        $query="insert into user_stats(gamer_id,uname,game_id,name,game_type,points,accuracy) values('$gamer_id','$uname','$game_id','$name','$game_type','$points','$accuracy')";
+        $res=mysqli_query($conn, $query);
+      }
+      ?>
 
   <script  src="game.js"></script>
 
@@ -54,6 +78,30 @@
 </html>
 
 <style>
+  #restart {
+    display: block;
+    
+    top: 35vh;
+    right: 80vh;
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+    background: white;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-color: red;
+    color: red;
+    border-radius: 1rem;
+    margin: 6.5rem 1rem 1rem 1rem;
+  }
+
+  #restart:hover {
+    background: red;
+    color: white;
+    border-color: red;
+    transition: 0.2s ease-in;
+  }
   .toggle {
   margin-left: 20px;
   margin-right: 20px;
@@ -62,7 +110,9 @@
 .button {
   border-radius: 50% !important;
   font-size: 1.5em;
+  padding: 0.5rem;
   background-color: lightgray;
+  margin-left: 3rem;
 }
 
 #switches {
@@ -214,252 +264,3 @@
   -webkit-box-sizing: border-box;
 }
 </style>
-
-<script>
-  let order = [];
-let playerOrder = [];
-let flash;
-let turn;
-let good;
-let compTurn;
-let intervalId;
-let strict = false;
-let noise = true;
-let on = false;
-let win;
-
-const turnCounter = document.querySelector("#turn");
-const topLeft = document.querySelector("#topleft");
-const topRight = document.querySelector("#topright");
-const bottomLeft = document.querySelector("#bottomleft");
-const bottomRight = document.querySelector("#bottomright");
-const strictButton = document.querySelector("#strict");
-const onButton = document.querySelector("#on");
-const startButton = document.querySelector("#start");
-
-strictButton.addEventListener('click', (event) => {
-  if (strictButton.checked == true) {
-    strict = true;
-  } else {
-    strict = false;
-  }
-});
-
-onButton.addEventListener('click', (event) => {
-  if (onButton.checked == true) {
-    on = true;
-    turnCounter.innerHTML = "-";
-  } else {
-    on = false;
-    turnCounter.innerHTML = "";
-    clearColor();
-    clearInterval(intervalId);
-  }
-});
-
-startButton.addEventListener('click', (event) => {
-  if (on || win) {
-    play();
-  }
-});
-
-function play() {
-  win = false;
-  order = [];
-  playerOrder = [];
-  flash = 0;
-  intervalId = 0;
-  turn = 1;
-  turnCounter.innerHTML = 1;
-  good = true;
-  for (var i = 0; i < 20; i++) {
-    order.push(Math.floor(Math.random() * 4) + 1);
-  }
-  compTurn = true;
-
-  intervalId = setInterval(gameTurn, 800);
-}
-
-function gameTurn() {
-  on = false;
-
-  if (flash == turn) {
-    clearInterval(intervalId);
-    compTurn = false;
-    clearColor();
-    on = true;
-  }
-
-  if (compTurn) {
-    clearColor();
-    setTimeout(() => {
-      if (order[flash] == 1) one();
-      if (order[flash] == 2) two();
-      if (order[flash] == 3) three();
-      if (order[flash] == 4) four();
-      flash++;
-    }, 200);
-  }
-}
-
-function one() {
-  if (noise) {
-    let audio = document.getElementById("clip1");
-    audio.play();
-  }
-  noise = true;
-  topLeft.style.backgroundColor = "lightgreen";
-}
-
-function two() {
-  if (noise) {
-    let audio = document.getElementById("clip2");
-    audio.play();
-  }
-  noise = true;
-  topRight.style.backgroundColor = "tomato";
-}
-
-function three() {
-  if (noise) {
-    let audio = document.getElementById("clip3");
-    audio.play();
-  }
-  noise = true;
-  bottomLeft.style.backgroundColor = "yellow";
-}
-
-function four() {
-  if (noise) {
-    let audio = document.getElementById("clip4");
-    audio.play();
-  }
-  noise = true;
-  bottomRight.style.backgroundColor = "lightskyblue";
-}
-
-function clearColor() {
-  topLeft.style.backgroundColor = "darkgreen";
-  topRight.style.backgroundColor = "darkred";
-  bottomLeft.style.backgroundColor = "goldenrod";
-  bottomRight.style.backgroundColor = "darkblue";
-}
-
-function flashColor() {
-  topLeft.style.backgroundColor = "lightgreen";
-  topRight.style.backgroundColor = "tomato";
-  bottomLeft.style.backgroundColor = "yellow";
-  bottomRight.style.backgroundColor = "lightskyblue";
-}
-
-topLeft.addEventListener('click', (event) => {
-  if (on) {
-    playerOrder.push(1);
-    check();
-    one();
-    if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
-    }
-  }
-})
-
-topRight.addEventListener('click', (event) => {
-  if (on) {
-    playerOrder.push(2);
-    check();
-    two();
-    if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
-    }
-  }
-})
-
-bottomLeft.addEventListener('click', (event) => {
-  if (on) {
-    playerOrder.push(3);
-    check();
-    three();
-    if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
-    }
-  }
-})
-
-bottomRight.addEventListener('click', (event) => {
-  if (on) {
-    playerOrder.push(4);
-    check();
-    four();
-    if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
-    }
-  }
-})
-bottomRight.addEventListener('click', (event) => {
-  if (on) {
-    playerOrder.push(4);
-    check();
-    four();
-    if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
-    }
-  }
-})
-
-function check() {
-  if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
-    good = false;
-
-  if (playerOrder.length == 6 && good) {
-    winGame();
-  }
-
-  if (good == false) {
-    flashColor();
-    turnCounter.innerHTML = "NO!";
-    setTimeout(() => {
-      turnCounter.innerHTML = turn;
-      clearColor();
-
-      if (strict) {
-        play();
-      } else {
-        compTurn = true;
-        flash = 0;
-        playerOrder = [];
-        good = true;
-        intervalId = setInterval(gameTurn, 800);
-      }
-    }, 800);
-
-    noise = false;
-  }
-
-  if (turn == playerOrder.length && good && !win) {
-    turn++;
-    playerOrder = [];
-    compTurn = true;
-    flash = 0;
-    turnCounter.innerHTML = turn;
-    intervalId = setInterval(gameTurn, 800);
-  }
-
-}
-
-function winGame() {
-  flashColor();
-  turnCounter.innerHTML = "WIN!";
-  on = false;
-  win = true;
-}
-</script>

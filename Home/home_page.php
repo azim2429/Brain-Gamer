@@ -47,19 +47,19 @@
                 <img style="position: relative;height:55vh" src="..\Images\speed.jpg">
                 <h2 id="sub-head" style="font-family: cursive;">Speed</h2>
                 <p id="sub-head1" style="font-family: arial;color:black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                <button href="something" class="play_button">Play Now!</button>
+                <a href="../Game/index.php?Speed="><button href="" class="play_button">Play Now!</button></a>
             </div>
             <div class="feature-container">
                 <img style="height:55vh" src="..\Images\mem.png">
                 <h2 id="sub-head2" style="font-family: cursive;">Memory</h2>
                 <p id="sub-head3" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                <button href="something" class="play_button">Play Now!</button>
+                <a href="../Game/index.php?Memory="><button href="" class="play_button">Play Now!</button></a>
             </div>
             <div class="feature-container">
                 <img src="..\Images\atten.png">
                 <h2 id="sub-head4" style="font-family: cursive;">Attention</h2>
                 <p id="sub-head5" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                <button href="something" class="play_button">Play Now!</button>
+                <a href="../Game/index.php?Attention="><button href="" class="play_button">Play Now!</button></a>
             </div>
         </section>
         <div class="all_game">

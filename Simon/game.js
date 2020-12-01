@@ -7,9 +7,9 @@ let compTurn;
 let intervalId;
 let strict = false;
 let noise = true;
-let on = false;
+let on = true;
 let win;
-
+var score = 0;
 const turnCounter = document.querySelector("#turn");
 const topLeft = document.querySelector("#topleft");
 const topRight = document.querySelector("#topright");
@@ -27,17 +27,17 @@ strictButton.addEventListener('click', (event) => {
   }
 });
 
-onButton.addEventListener('click', (event) => {
-  if (onButton.checked == true) {
-    on = true;
-    turnCounter.innerHTML = "-";
-  } else {
-    on = false;
-    turnCounter.innerHTML = "";
-    clearColor();
-    clearInterval(intervalId);
-  }
-});
+// onButton.addEventListener('click', (event) => {
+//   if (onButton.checked == true) {
+//     on = true;
+//     turnCounter.innerHTML = "-";
+//   } else {
+//     on = false;
+//     turnCounter.innerHTML = "";
+//     clearColor();
+//     clearInterval(intervalId);
+//   }
+// });
 
 startButton.addEventListener('click', (event) => {
   if (on || win) {
@@ -79,6 +79,7 @@ function gameTurn() {
       if (order[flash] == 2) two();
       if (order[flash] == 3) three();
       if (order[flash] == 4) four();
+      if (order[flash] == 5) two();
       flash++;
     }, 200);
   }
@@ -190,30 +191,32 @@ function check() {
   if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
 
-  if (playerOrder.length == 3 && good) {
+  if (playerOrder.length == 10 && good) {
     winGame();
   }
 
-  // if (good == false) {
-  //   flashColor();
-  //   turnCounter.innerHTML = "NO!";
-  //   setTimeout(() => {
-  //     turnCounter.innerHTML = turn;
-  //     clearColor();
+  if (good == false) {
+    flashColor();
+    turnCounter.innerHTML = "NO!";
+    score++;
+    setTimeout(() => {
+      turnCounter.innerHTML = turn;
+      clearColor();
 
-  //     if (strict) {
-  //       play();
-  //     } else {
-  //       compTurn = true;
-  //       flash = 0;
-  //       playerOrder = [];
-  //       good = true;
-  //       intervalId = setInterval(gameTurn, 800);
-  //     }
-  //   }, 800);
+      if (strict) {
+        play();
+      } 
+      else {
+        compTurn = true;
+        flash = 0;
+        playerOrder = [];
+        good = true;
+        intervalId = setInterval(gameTurn, 800);
+      }
+    }, 800);
 
-  //   noise = false;
-  // }
+    noise = false;
+  }
 
   if (turn == playerOrder.length && good && !win) {
     turn++;
@@ -229,6 +232,12 @@ function check() {
 function winGame() {
   flashColor();
   turnCounter.innerHTML = "WIN!";
+  console.log(score);
+  document.getElementById('switches').style.display = 'none';
+  document.getElementById('pow').style.display = 'none';
+  document.getElementById('restart').style.display = 'block';
+  document.getElementById('points').value = 100-(score);
+  document.getElementById('accuracy').value = 100 - (score);
   on = false;
   win = true;
 }

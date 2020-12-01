@@ -19,10 +19,10 @@
     <?php include "..\Common\av_bar.php" ?>
     <a class="a_game" href="../Game/index.php">
         <i style="position:absolute;top:16%;left:10%" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
-    <div class="container" style="position:relative;top:10vh;left:50vh;margin-right:55rem">
+    <div class="container" style="position:relative;top:15vh;left:60vh;margin-right:55rem">
 
         <header>
-            <h1>Memory Game</h1>
+            <h1 id="h1">Memory Game</h1>
         </header>
 
 
@@ -35,9 +35,9 @@
                     <li><i class="fa fa-star"></i></li>
                 </ul>
 
-                <span class="moves">0</span> Move(s)
+                <span id="h2" class="moves">0</span> <span id="h4">Move(s)<span>
 
-                <div class="timer">
+                <div id="h3" class="timer">
                 </div>
             </section>
 
@@ -105,8 +105,8 @@
                         <p>Rating: <span id=starRating></span></p>
                         <p>Accuracy: <span id=accurate></span></p>
                         <form action="index.php" method="POST">
-                            <input class="" name="points" id="points" style="display: block;">
-                            <input class="" name="accuracy" id="accuracy" style="display: block;">
+                            <input class="" name="points" id="points" style="display: none;">
+                            <input class="" name="accuracy" id="accuracy" style="display: none;">
                             <button name="continue" type="submit" id="play-again">
                                 Continue 😄</a>
                             </button>
@@ -401,3 +401,27 @@
 </body>
 
 </html>
+
+<script>
+        var mode = localStorage.getItem("mode");
+        console.log(mode);
+        var h1 = document.getElementById("h1");
+        var h2 = document.getElementById("h2");
+        var h3 = document.getElementById("h3");
+        var h4 = document.getElementById("h4");
+        if(mode=="day"){
+		localStorage.setItem("mode1", "day");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+	}
+        if(mode=="night"){
+        document.body.style.backgroundColor = "#191970";
+        h1.style.color = "white";
+        h2.style.color = "white";
+        h3.style.color = "white";
+        h4.style.color = "white";
+        localStorage.setItem("mode1", "night");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+        }
+    </script>

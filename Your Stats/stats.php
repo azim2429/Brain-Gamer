@@ -461,7 +461,7 @@ while ($g6_row = mysqli_fetch_array($g6_res)) {
 
 <div class="header">
   <br>
-<h1 style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
+<h1 id="h1" style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
 <br><br>
 </div>
 <div class="move">
@@ -472,7 +472,7 @@ while ($g6_row = mysqli_fetch_array($g6_res)) {
 <div style="color: black;" class="content">
     <div  class="report-overview-module"></div>
 </div>
-<h1 style="color:black;text-align:center;margin-left:17rem">Overall Accuracy</h1>
+<h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Accuracy</h1>
 <hr style="margin-bottom: 22rem;width:250vh;color:green">
 <div  class="contain">
   
@@ -487,13 +487,22 @@ while ($g6_row = mysqli_fetch_array($g6_res)) {
     $n_acc = $p_row['name'];
 
 ?>
+<?php
+  
+  $gamer_id =  $_SESSION['gamer_id'] ;
+  $g7_query = "select avg(points) as points from user_stats where gamer_id= $gamer_id and name = 'Simon!!'";
+  $g7_res = mysqli_query($conn,$g7_query);
+  while ($g7_row = mysqli_fetch_array($g7_res)) {
+    $g7_acc = $g7_row['points'];
+  }
+  ?>
     <div class="bar teal lighten-1" data-percent="<?php echo $p_acc?>%"><span class="label"><?php echo $n_acc ?></span></div>
     <?php }?>
   </div>
 </div>
 <hr>
 <br>
-<h1 style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
+<h1 id="h3" style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
 <br><br>
 <div style="margin-bottom: 20vh;"></div>
 </body>
@@ -579,7 +588,7 @@ $(function() {
     },
 
     xAxis: {
-      categories: ['Whack A Mole!', 'Flicker Master!', 'Word Memory!', 'Horizon Chase!', 'Memorize the Card', 'Catch The Eggs!'],
+      categories: ['Whack A Mole!', 'Flicker Master!', 'Word Memory!', 'Horizon Chase!', 'Memorize the Card', 'Catch The Eggs!','Simon!'],
     },
     yAxis:{
       title: {
@@ -592,7 +601,7 @@ $(function() {
     },
     series: [{
       name: 'Average Score',
-      data: [<?php echo $g1_acc?>,<?php echo $g2_acc?>,<?php echo $g3_acc?>,<?php echo $g4_acc?>,<?php echo $g5_acc?>,<?php echo $g6_acc?>,],
+      data: [<?php echo $g1_acc?>,<?php echo $g2_acc?>,<?php echo $g3_acc?>,<?php echo $g4_acc?>,<?php echo $g5_acc?>,<?php echo $g6_acc?>,<?php echo $g7_acc?>],
       
     }],
 
@@ -879,7 +888,7 @@ $(function() {
   
   <div class="header">
     <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
+  <h1 id="h1" style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
   <br><br>
   </div>
   <div class="move">
@@ -890,7 +899,7 @@ $(function() {
   <div style="color: black;" class="content">
       <div  class="report-overview-module"></div>
   </div>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Overall Speed Game Accuracy</h1>
+  <h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Speed Game Accuracy</h1>
   <hr style="margin-bottom: 22rem;width:250vh;color:green">
   <div  class="contain">
     
@@ -911,7 +920,7 @@ $(function() {
   </div>
   <hr>
   <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
+  <h1 id="h3" style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
   <br><br>
   <div style="margin-bottom: 20vh;"></div>
   </body>
@@ -1298,7 +1307,7 @@ $(function() {
   
   <div class="header">
     <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
+  <h1 id="h1" style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
   <br><br>
   </div>
   <div class="move">
@@ -1309,7 +1318,7 @@ $(function() {
   <div style="color: black;" class="content">
       <div  class="report-overview-module"></div>
   </div>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Overall Attention Game Accuracy</h1>
+  <h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Attention Game Accuracy</h1>
   <hr style="margin-bottom: 22rem;width:250vh;color:green">
   <div  class="contain">
     
@@ -1330,7 +1339,7 @@ $(function() {
   </div>
   <hr>
   <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
+  <h1 id="h3" style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
   <br><br>
   <div style="margin-bottom: 20vh;"></div>
   </body>
@@ -1680,7 +1689,7 @@ $(function() {
   <?php
   
   $gamer_id =  $_SESSION['gamer_id'] ;
-  $a_query = "select CAST(AVG(accuracy) as int)as acc from user_stats where gamer_id = $gamer_id  and name='Memorize the Card'";
+  $a_query = "select CAST(AVG(accuracy) as int)as acc from user_stats where gamer_id = $gamer_id  and name='Simon!!'";
   $a_res = mysqli_query($conn,$a_query);
   while ($a_row = mysqli_fetch_array($a_res)) {
     $a_acc = $a_row['acc'];
@@ -1707,6 +1716,15 @@ $(function() {
     $g4_acc = $g4_row['points'];
   }
   ?>
+  <?php
+  
+  $gamer_id =  $_SESSION['gamer_id'] ;
+  $g4_query = "select avg(points) as points from user_stats where gamer_id= $gamer_id and name = 'Simon!!'";
+  $g4_res = mysqli_query($conn,$g4_query);
+  while ($g4_row = mysqli_fetch_array($g4_res)) {
+    $g5_acc = $g4_row['points'];
+  }
+  ?>
   
   
   <body>
@@ -1717,7 +1735,7 @@ $(function() {
   
   <div class="header">
     <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
+  <h1 id="h1" style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
   <br><br>
   </div>
   <div class="move">
@@ -1728,7 +1746,7 @@ $(function() {
   <div style="color: black;" class="content">
       <div  class="report-overview-module"></div>
   </div>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Overall Memory Game Accuracy</h1>
+  <h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Memory Game Accuracy</h1>
   <hr style="margin-bottom: 22rem;width:250vh;color:green">
   <div  class="contain">
     
@@ -1749,7 +1767,7 @@ $(function() {
   </div>
   <hr>
   <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
+  <h1 id="h3" style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
   <br><br>
   <div style="margin-bottom: 20vh;"></div>
   </body>
@@ -1835,7 +1853,7 @@ $(function() {
       },
   
       xAxis: {
-        categories: ['Word Memory!', 'Memorize the Card'],
+        categories: ['Word Memory!', 'Memorize the Card','Simon!!'],
       },
       yAxis:{
         title: {
@@ -1848,7 +1866,7 @@ $(function() {
       },
       series: [{
         name: 'Average Score',
-        data: [<?php echo $g1_acc?>,<?php echo $g4_acc?>],
+        data: [<?php echo $g1_acc?>,<?php echo $g4_acc?>,<?php echo $g5_acc?>],
         
       }],
   
@@ -1937,11 +1955,11 @@ $(function() {
           '</div>',
           '</div>',
   
-          // '<div style="border:#30afe4 2px solid;margin-left:3vh" class="report-statistic-box">',
-          // '<div style="color: black" class="box-header">Attention</div>',
-          // '<div style="color: black;" class="box-content open-rate">',
-          // '<div style="color: black;" class="percentage"><?php echo $m_acc ?>%</div>',
-          // '</div>',
+          '<div style="border:#30afe4 2px solid;margin-left:3vh" class="report-statistic-box">',
+          '<div style="color: black" class="box-header">Simon!</div>',
+          '<div style="color: black;" class="box-content open-rate">',
+          '<div style="color: black;" class="percentage"><?php echo $a_acc ?>%</div>',
+          '</div>',
           '<div style="color: black;" class="box-foot">',
           // '<span style="color: black;" class="arrow arrow-up"></span>',
           // '<div style="color: black;" class="box-foot-left">Memory<br><span class="box-foot-stats"><strong>{{opened}}</strong> (75%)</span></div>'.replace(/{{opened}}/, options.data.opened),
@@ -2173,6 +2191,15 @@ $(function() {
     $g6_acc = $g6_row['points'];
   }
   ?>
+  <?php
+  
+  $gamer_id =  $_SESSION['gamer_id'] ;
+  $g7_query = "select avg(points) as points from user_stats where gamer_id= $gamer_id and name = 'Simon!!'";
+  $g7_res = mysqli_query($conn,$g7_query);
+  while ($g7_row = mysqli_fetch_array($g7_res)) {
+    $g7_acc = $g7_row['points'];
+  }
+  ?>
   
   <body>
   <!-- <div class="wrapper">
@@ -2182,7 +2209,7 @@ $(function() {
   
   <div class="header">
     <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
+  <h1 id="h1" style="color:black;text-align:center;margin-left:17rem">Your Personalized Statistics</h1>
   <br><br>
   </div>
   <div class="move">
@@ -2193,7 +2220,7 @@ $(function() {
   <div style="color: black;" class="content">
       <div  class="report-overview-module"></div>
   </div>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Overall Accuracy</h1>
+  <h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Accuracy</h1>
   <hr style="margin-bottom: 22rem;width:250vh;color:green">
   <div  class="contain">
     
@@ -2214,7 +2241,7 @@ $(function() {
   </div>
   <hr>
   <br>
-  <h1 style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
+  <h1 id="h3" style="color:black;text-align:center;margin-left:17rem">Highest Scores</h1>
   <br><br>
   <div style="margin-bottom: 20vh;"></div>
   </body>
@@ -2300,7 +2327,7 @@ $(function() {
       },
   
       xAxis: {
-        categories: ['Whack A Mole!', 'Flicker Master!', 'Word Memory!', 'Horizon Chase!', 'Memorize the Card', 'Catch The Eggs!'],
+        categories: ['Whack A Mole!', 'Flicker Master!', 'Word Memory!', 'Horizon Chase!', 'Memorize the Card', 'Catch The Eggs!','Simon!'],
       },
       yAxis:{
         title: {
@@ -2313,7 +2340,7 @@ $(function() {
       },
       series: [{
         name: 'Average Score',
-        data: [<?php echo $g1_acc?>,<?php echo $g2_acc?>,<?php echo $g3_acc?>,<?php echo $g4_acc?>,<?php echo $g5_acc?>,<?php echo $g6_acc?>,],
+        data: [<?php echo $g1_acc?>,<?php echo $g2_acc?>,<?php echo $g3_acc?>,<?php echo $g4_acc?>,<?php echo $g5_acc?>,<?php echo $g6_acc?>,<?php echo $g7_acc?>],
         
       }],
   
@@ -2548,3 +2575,24 @@ $(function() {
    
    include "..\Common\icon.php";
    } ?>
+
+<script>
+        var mode = localStorage.getItem("mode");
+        console.log(mode);
+        var h1 = document.getElementById("ab_header");
+        if(mode=="day"){
+		localStorage.setItem("mode1", "day");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+	}
+        if(mode=="night"){
+        document.body.style.backgroundColor = "#191970";
+        document.getElementById('h1').style.color = "white";
+        document.getElementById('h2').style.color = "white";
+        document.getElementById('h3').style.color = "white";
+		h1.style.color = "white";
+        localStorage.setItem("mode1", "night");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+        }
+    </script>

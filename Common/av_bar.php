@@ -37,7 +37,7 @@ if (isset($_REQUEST['logout'])) {
             <li><a href="../Home/home_page.php">Home</a></li>
             <li><a href="../Game/index.php">Our Games</a></li>
             <li><a href="../Your Stats/stats.php">Your Stats</a></li>
-            <li><a href="..\Admin\enter_game.php">Insights</a></li>
+            <li><a href="../Insights/index.php">Insights</a></li>
             <?php if (!isset($_SESSION['uphoto'])) { ?>
                 <a href="..\Authentication\login1.php">
                     <li><button class="login-button">Login</button></li>

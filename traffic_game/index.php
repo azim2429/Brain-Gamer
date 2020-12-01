@@ -17,7 +17,7 @@
         <!-- <div id="display" class="display">
       <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;text-align:center">Whack-a-mole!</h1> -->
       <div id="hide" style="display: block;">
-        <button id="start_button"  class="button" onclick="startGame()">Start</button>
+        <button id="start_button" style="right:200vh;top:50vh;left:27vh" class="button" onclick="startGame()">Start</button>
         
         </div>
     </div>
@@ -27,7 +27,7 @@
     <div id="help">
         <p>Controls: Right, Left, Up & Down arrow keys.</p>
     </div>
-    <div id="score_div">
+    <div id="score_div" style="left: 8vh;">
         Score: <span id="score">0</span>
         Accuracy: <span id="high_score">0</span>
     </div>
@@ -105,5 +105,20 @@
       ?>
 </html>
 <script>
- 
-</script>
+        var mode = localStorage.getItem("mode");
+        console.log(mode);
+        var h1 = document.getElementById("ab_header");
+        if(mode=="day"){
+            document.body.style.backgroundColor = "#58D68D";
+		localStorage.setItem("mode1", "day");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+	}
+        if(mode=="night"){
+        document.body.style.backgroundColor = "#191970";
+		h1.style.color = "white";
+        localStorage.setItem("mode1", "night");
+        var mode1 = localStorage.getItem("mode1");
+        console.log(mode1);
+        }
+    </script>
