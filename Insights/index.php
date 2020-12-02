@@ -17,14 +17,14 @@
     <?php
 include '..\Authentication\connect_db.php';
     $gamer_id =  $_SESSION['gamer_id'] ;
-    $max_query = "select max(points) as points,name,gamer_id from user_stats where gamer_id = $gamer_id group by name";
+    $max_query = "select max(points) as points,name,gamer_id from user_stats where gamer_id = $gamer_id group by name order by points Asc";
     $max_res = mysqli_query($conn,$max_query);
     while ($max_row = mysqli_fetch_array($max_res)) {
     $max_acc = $max_row['points'];
     $max_name = $max_row['name'];
     }
     $gamer_id =  $_SESSION['gamer_id'] ;
-    $min_query = "select min(points) as points,name,gamer_id from user_stats where gamer_id = $gamer_id GROUP by name ";
+    $min_query = "select min(points) as points,name,gamer_id from user_stats where gamer_id = $gamer_id GROUP by name order by points DESC";
     $min_res = mysqli_query($conn,$min_query);
     while ($min_row = mysqli_fetch_array($min_res)) {
     $min_acc = $min_row['points'];
@@ -56,7 +56,12 @@ include '..\Authentication\connect_db.php';
     while ($min_row = mysqli_fetch_array($min_res)) {
     $min_ply = $min_row['name'];
     }
-   
+    $c_query = " select COUNT(gamer_id) as id from user_stats where gamer_id = $gamer_id";
+    $c_res = mysqli_query($conn,$c_query);
+    while ($c_row = mysqli_fetch_array($c_res)) {
+    $c_ply = $c_row['id'];
+    }
+    if ($c_ply!=0) {
 ?>
     <div class="main-container">
   <div class="heading-container">
@@ -68,40 +73,56 @@ include '..\Authentication\connect_db.php';
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">You Have the Highest score of <b><?php echo $max_acc?></b> <br>Game :<b> <?php echo $max_name?> </b> </h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
     <div class="card card-2">
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">Your <b><?php echo $max_type?></b> Skills are better than others</h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
     <div class="card card-3">
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">You Have played <b><?php echo $max_ply?></b> the most</h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
     <div class="card card-4">
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">You Have the Lowest score of <b><?php echo $min_acc?></b> <br>Game :<b> <?php echo $min_name?> </b> </h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
     <div class="card card-5">
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">Your <b><?php echo $min_type?></b> Skills are weaker than others</h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
     <div class="card card-1">
       <div class="card__icon"><i class="fa fa-bolt"></i></div>
       
       <h2 class="card__title">You have played <b><?php echo $min_ply?></b> the least</h2>
-      <p class="card__apply"><a href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a></p>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
     </div>
   </div>
 </div>
+      <?php } 
+      
+      else if ($c_ply==0) {?>
+      <br><br>br><br>br><br>br><br>
+<div class="card-container">
+    <div class="card card-1">
+      <div class="card__icon"><i class="fa fa-bolt"></i></div>
+      
+      <h2 class="card__title">No Games Played</h2>
+      <p class="card__apply"><a class='a' href="../Game/index.php">Play Now <i class="fa fa-arrow-right"></i></a class='a'></p>
+    </div>
+</div>
+     <?php }
+      
+      ?>
+       
 </body>
 </html>
 <style>
@@ -120,19 +141,21 @@ include '..\Authentication\connect_db.php';
   transition: all 0.5s;
 }
 
-.credit a {
+.credit .a {
   color: inherit;
 }
 
-a,
+.a,
 .card__exit,
 .card__icon {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
 }
-
-a::after {
+a{
+  font-size: 20px;
+}
+.a::after {
   position: absolute;
   top: 25px;
   left: 0;
@@ -143,7 +166,7 @@ a::after {
   transition: all 0.5s;
 }
 
-a:hover::after {
+.a:hover::after {
   width: 100%;
 }
 

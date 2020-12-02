@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
+    <?php include "..\Common\av_bar.php" ?>
     <?php include "../Common/icon.php" ?>
 </head>
 
 <body>
-    <?php include "..\Common\av_bar.php" ?>
+    
     <?php
     include '..\Authentication\connect_db.php';
     $gamer_id =  $_SESSION['gamer_id'];
@@ -31,10 +33,10 @@
                 <h1 style="font-size: 4rem;">Welcome To Brain Games</h1>
                 <h3 style="font-family: times;">We bring easy and better brain training to the world.</h3>
             <?php } ?>
-            <div class="mode-1">
+            <!-- <div class="mode-1">
                 <img style="cursor:pointer;margin:20px;width:10vh" onclick="change_mode()" id="logo_light" src='..\Images\day_mode.png' alt="Logo Image">
                 <img style="cursor:pointer;margin:20px;width:10vh" id="logo_dark" onclick="change_mode()" src='..\Images\ni8_mode.png' alt="Logo Image">
-            </div>
+            </div> -->
         </div>
         <section class="headline">
             <h1 style="color: black;">HELLO</h1><br><br>
@@ -46,19 +48,24 @@
             <div class="feature-container">
                 <img style="position: relative;height:55vh" src="..\Images\speed.jpg">
                 <h2 id="sub-head" style="font-family: cursive;">Speed</h2>
-                <p id="sub-head1" style="font-family: arial;color:black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                <p id="sub-head1" style="font-family: arial;color:black">Gamers who play these game can process these information faster than others.
+</p>
                 <a href="../Game/index.php?Speed="><button href="" class="play_button">Play Now!</button></a>
             </div>
             <div class="feature-container">
                 <img style="height:55vh" src="..\Images\mem.png">
                 <h2 id="sub-head2" style="font-family: cursive;">Memory</h2>
-                <p id="sub-head3" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                <p id="sub-head3" style="font-family: arial;">These game will help you improve your memory,
+whether short- term or long-term.
+</p>
                 <a href="../Game/index.php?Memory="><button href="" class="play_button">Play Now!</button></a>
             </div>
             <div class="feature-container">
                 <img src="..\Images\atten.png">
                 <h2 id="sub-head4" style="font-family: cursive;">Attention</h2>
-                <p id="sub-head5" style="font-family: arial;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                <p id="sub-head5" style="font-family: arial;">Games have proven to be able to
+capture the player's attention for the entire period of the game.
+</p>
                 <a href="../Game/index.php?Attention="><button href="" class="play_button">Play Now!</button></a>
             </div>
         </section>
@@ -192,58 +199,7 @@
         u.style.backgroundColor = "#191970";
     }
 
-    function change_mode() {
-        var y = document.getElementById("logo_light");
-        var x = document.getElementById("logo_dark");
-        var z = document.getElementById("header");
-        var w = document.getElementById("features");
-        var v = document.getElementById("content_leader");
-        var u = document.getElementById("about-section");
-        var a = document.getElementById("sub-head");
-        var b = document.getElementById("sub-head1");
-        var c = document.getElementById("sub-head2");
-        var d = document.getElementById("sub-head3");
-        var e = document.getElementById("sub-head4");
-        var f = document.getElementById("sub-head5");
-        if (x.style.display == "block") {
-            x.style.display = "none";
-            y.style.display = "block";
-            a.style.color = "black";
-            b.style.color = "black";
-            c.style.color = "black";
-            d.style.color = "black";
-            e.style.color = "black";
-            f.style.color = "black";
-            document.body.style.backgroundColor = "white";
-            document.body.style.color = "black";
-            z.style.color = "black";
-            w.style.backgroundColor = "#f1f1f1";
-            v.style.color = "black";
-            localStorage.setItem("mode", "day");
-            var mode = localStorage.getItem("mode");
-            console.log(mode);
-        } else {
-            x.style.display = "block";
-            y.style.display = "none"
-            document.body.style.backgroundColor = "#191970";
-            a.style.color = "white";
-            b.style.color = "white";
-            c.style.color = "white";
-            d.style.color = "white";
-            e.style.color = "white";
-            f.style.color = "white";
-            document.body.style.color = "white";
-            z.style.color = "white";
-            w.style.backgroundColor = "#191970";
-            v.style.color = "white";
-            u.style.backgroundColor = "#191970";
-            localStorage.setItem("mode", "night");
-            var mode = localStorage.getItem("mode");
-            console.log(mode);
-
-        }
-    }
-
+    
     function validation() {
         var fname = document.getElementById('name').value;
         var lname = document.getElementById('company').value;
@@ -565,13 +521,13 @@
         padding: 10px 10px;
         font-size: 20px;
         cursor: pointer;
-        border-color: #3498db;
-        color: #3498db;
+        border-color: white;
+        background: #3498db;
     }
 
     .button:hover {
-        background: #3498db;
-        color: white;
+        background: white;
+        color: #3498db;
         border-color: #3498db;
         transition: 0.5s ease-in;
     }

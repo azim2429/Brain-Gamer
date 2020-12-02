@@ -1,5 +1,5 @@
 <?php include "..\Common\av_bar.php";?>
-
+<?php include "..\Common\preloader.php" ?>
 <?php if (isset($_SESSION['gamer_id'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -353,6 +353,11 @@
 @media (max-width: 1024px) {
   .report-statistic-box {
     width: 50%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .container1{
+    display: none;
   }
 }
 </style>
@@ -2576,23 +2581,3 @@ $(function() {
    include "..\Common\icon.php";
    } ?>
 
-<script>
-        var mode = localStorage.getItem("mode");
-        console.log(mode);
-        var h1 = document.getElementById("ab_header");
-        if(mode=="day"){
-		localStorage.setItem("mode1", "day");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-	}
-        if(mode=="night"){
-        document.body.style.backgroundColor = "#191970";
-        document.getElementById('h1').style.color = "white";
-        document.getElementById('h2').style.color = "white";
-        document.getElementById('h3').style.color = "white";
-		h1.style.color = "white";
-        localStorage.setItem("mode1", "night");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-        }
-    </script>

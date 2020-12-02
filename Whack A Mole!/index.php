@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include "..\Common\preloader.php" ?>
 <head>
   <meta charset="UTF-8">
   <title>Whack A Mole!</title>
@@ -244,32 +244,7 @@
 
   moles.forEach(mole => mole.addEventListener('click', bonk));
 </script>
-<script>
-  var mode = localStorage.getItem("mode");
-  console.log(mode);
 
-  if (mode == "day") {
-    localStorage.setItem("mode1", "day");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-    var h1 = document.getElementById('h1');
-    var p = document.getElementById('p');
-    h1.style.color = 'black';
-    p1.style.color = 'black';
-    p.style.color = 'black';
-    var fa = document.getElementById("fa");
-    fa.style.color = "black";
-
-  }
-  if (mode == "night") {
-    var fa = document.getElementById("fa");
-    document.body.style.backgroundColor = "#191970";
-    fa.style.color = "white";
-    localStorage.setItem("mode1", "night");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
-</script>
 </body>
 
 </html>

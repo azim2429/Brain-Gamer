@@ -1,5 +1,5 @@
 <html>
-
+<?php include "..\Common\preloader.php" ?>
 <head>
   <title>Catch The Eggs</title>
   <link href="egg.css" rel="stylesheet" />
@@ -8,6 +8,8 @@
 <body>
 <?php include "..\Common\icon.php" ?>
     <?php include "..\Common\av_bar.php" ?>
+    <a class="a_game" href="../Game/index.php">
+        <i style="position:absolute;top:16%;left:10%;color:black" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
   <div id="container" style="position:absolute;top:10rem">
 
     <div id="score_help"> Score:
@@ -105,7 +107,7 @@
     margin: 2rem;
   }
 
-  .button:hover {
+  #start_button:hover {
     background: red;
     color: white;
     border-color: red;
@@ -114,4 +116,7 @@
   #container{
     margin-bottom: 2.5rem;
   }
+  a{
+    font-size: 20px;
+}
 </style>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -8,12 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Word Memory</title>
     <link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
+    <?php include "..\Common\av_bar.php" ?>
     <style media="screen">
         #showWords {
             font-size: 28px;
             width: 200px;
             margin: 0 auto 20px auto;
             transform: translateX(-31px);
+            color: white;
         }
 
         .numbering {
@@ -151,7 +152,7 @@
         }
 
         a {
-            color: white;
+            color: #004b91;
             font-size: 20px;
         }
 
@@ -173,7 +174,9 @@
         }
     </style>
 </head>
-<?php include "..\Common\av_bar.php" ?>
+
+<?php include "..\Common\preloader.php" ?>
+
 <body>
     
     <a class="a_game" href="../Game/index.php">
@@ -217,7 +220,7 @@
             </div>
 
             <input type="text" placeholder="answer" style="color:black" id="answer">
-            <div id="feedback" style="font-size:22px"></div>
+            <div id="feedback" style="font-size:22px;color:white"></div>
             <form action="word_memory.php" method="POST">
                 <input id="score" name="points" style="display:none">
                 <input id="accuracy" name="accuracy" style="display:none">
@@ -264,7 +267,7 @@
     var count = 0;
     var score = 0;
     var myTimer = document.getElementById('timer');
-    var time = 10;
+    var time = 20;
     var start = document.getElementById('start_game');
 
     function startGame() {
@@ -402,28 +405,5 @@
 </script>
 
 </html>
-<script>
-    var mode = localStorage.getItem("mode");
-    console.log(mode);
 
-    if (mode == "day") {
-        localStorage.setItem("mode1", "day");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-    }
-    if (mode == "night") {
-
-        document.body.style.backgroundColor = "#191970";
-        var h1 = document.getElementById('h1');
-        var p1 = document.getElementById('p1');
-        var p = document.getElementById('p');
-        var fa = document.getElementById('fa');
-        h1.style.color = "white";
-        p1.style.color = "white";
-        p.style.color = "white";
-        fa.style.color = "white";
-        localStorage.setItem("mode1", "night");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-    }
 </script>

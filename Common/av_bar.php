@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '..\Authentication\connect_db.php';
 ?>
 <?php
 if (isset($_REQUEST['logout'])) {
@@ -9,8 +10,10 @@ if (isset($_REQUEST['logout'])) {
 }
 ?>
 <?php
-  include '..\Authentication\connect_db.php';
-  
+ 
+  if (!isset($_SESSION['gamer_id'])) {
+    header("Location:../not_found/index.php");
+  }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +41,7 @@ if (isset($_REQUEST['logout'])) {
             <li><a href="../Game/index.php">Our Games</a></li>
             <li><a href="../Your Stats/stats.php">Your Stats</a></li>
             <li><a href="../Insights/index.php">Insights</a></li>
-            <?php if (!isset($_SESSION['uphoto'])) { ?>
+            <?php if (!isset($_SESSION['uphoto'])) {?>
                 <a href="..\Authentication\login1.php">
                     <li><button class="login-button">Login</button></li>
                 </a>

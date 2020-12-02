@@ -4,6 +4,7 @@ if (isset($_SESSION['fname'])) {
   header("Location:../Home/home_page.php");
 }
 ?>
+<?php include "..\Common\preloader.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -371,21 +372,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 </style>
-<script>
-  var mode = localStorage.getItem("mode");
-  console.log(mode);
-
-  if (mode == "day") {
-    localStorage.setItem("mode1", "day");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
-  if (mode == "night") {
-
-    document.body.style.backgroundColor = "#191970";
-
-    localStorage.setItem("mode1", "night");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
-</script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include "..\Common\preloader.php" ?>
 <head>
     <meta charset="UTF-8">
     <title>Traffic Racer</title>
@@ -17,7 +17,7 @@
         <!-- <div id="display" class="display">
       <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;text-align:center">Whack-a-mole!</h1> -->
       <div id="hide" style="display: block;">
-        <button id="start_button" style="right:200vh;top:50vh;left:27vh" class="button" onclick="startGame()">Start</button>
+        <button id="start_button" style="right:20vh;top:55vh;left:33vh" class="button" onclick="startGame()">Start</button>
         
         </div>
     </div>
@@ -104,21 +104,30 @@
       }
       ?>
 </html>
-<script>
-        var mode = localStorage.getItem("mode");
-        console.log(mode);
-        var h1 = document.getElementById("ab_header");
-        if(mode=="day"){
-            document.body.style.backgroundColor = "#58D68D";
-		localStorage.setItem("mode1", "day");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-	}
-        if(mode=="night"){
-        document.body.style.backgroundColor = "#191970";
-		h1.style.color = "white";
-        localStorage.setItem("mode1", "night");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-        }
-    </script>
+    <style>
+        a{
+    font-size: 20px;
+}
+#start_button {
+    position: absolute;
+   
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+        background: white;
+        padding: 10px 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border-color: red;
+        color: red;
+        border-radius: 1rem;
+    margin: 2rem;
+  }
+
+  #start_button:hover {
+    background: red;
+        color: white;
+        border-color: red;
+        transition: 0.2s ease-in;
+  }
+    </style>

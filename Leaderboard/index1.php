@@ -11,14 +11,15 @@
 </head>
 <body>
 <?php include "..\Common\av_bar.php" ?>
+<?php include "..\Common\preloader.php" ?>
 <div id="leaderboard" class="leaderboard">
   <header>
     <h1>Leader Board</h1>
     <div class="nav">
-      <a id="a_all_time" style="cursor: pointer;" onclick="all_time()" class="active">Overall</a>
-      <a id="a_speed" style="cursor: pointer;" onclick="speed()">Speed</a>
-      <a id="a_memory" style="cursor: pointer;" onclick="memory()">Memory</a>
-      <a id="a_attention" style="cursor: pointer;" onclick="attention()">Attention</a>
+      <a class='a' id="a_all_time" style="cursor: pointer;" onclick="all_time()" class="active">Overall</a>
+      <a class='a' id="a_speed" style="cursor: pointer;" onclick="speed()">Speed</a>
+      <a class='a' id="a_memory" style="cursor: pointer;" onclick="memory()">Memory</a>
+      <a class='a' id="a_attention" style="cursor: pointer;" onclick="attention()">Attention</a>
       
 </div>
   </header>
@@ -161,6 +162,12 @@
 </body>
 </html>
 <style>
+  a{
+    font-size: 20px;
+  }
+  .a{
+    color:white
+  }
   body{
     background: url('../Images/mario1.jpg');
     overflow: hidden;
@@ -177,13 +184,6 @@
     overflow-y: auto;
 height: 85vh;
   }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 20px;
-  }
-  
   header {
     background-color: #ff7500;
     color: white;

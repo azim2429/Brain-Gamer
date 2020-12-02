@@ -16,29 +16,13 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  line-height: 1;
-  font-family: Acme, Arial, sans-serif;
-  background :#07689f;
+  background :#026c45;
 }
 
 form {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
-h1 {
-  text-align: center;
-}
+
 
 #hands {
   text-align: center;

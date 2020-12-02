@@ -236,7 +236,7 @@ function winGame() {
   document.getElementById('switches').style.display = 'none';
   document.getElementById('pow').style.display = 'none';
   document.getElementById('restart').style.display = 'block';
-  document.getElementById('points').value = 100-(score);
+  document.getElementById('points').value = 100-(score)*2;
   document.getElementById('accuracy').value = 100 - (score);
   on = false;
   win = true;

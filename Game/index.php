@@ -74,8 +74,8 @@ include '..\Authentication\connect_db.php';
 				<figcaption>
 					<h2><span><?php echo $m_name; ?></span></h2>
 					<p><?php echo $m_game_desc; ?></p>
-					
-					<label><a class="a" href="<?php echo $m_link; ?>?id=<?php echo $m_row['game_id'];?>&name=<?php echo $m_row['name'];?>&type=<?php echo $m_row['game_type'];?>">Play Now</a></label>
+					<br>
+					<label style="margin-top: 1rem;"><a style="margin-top: 1rem;" class="a" href="<?php echo $m_link; ?>?id=<?php echo $m_row['game_id'];?>&name=<?php echo $m_row['name'];?>&type=<?php echo $m_row['game_type'];?>">Play Now</a></label>
 					
 				</figcaption>
 			</figure>
@@ -387,10 +387,11 @@ include '..\Authentication\connect_db.php';
 	}
 
 	figure.effect-duke label {
-		position: absolute;
-		bottom: 0;
-		left: 0;
+		position: relative;
+		bottom: 0px;
+		right: 5rem;
 		margin-left: 150px;
+	    top: 3rem;
 		margin-bottom: 175px;
 		padding: 10px;
 		border: 2px solid #fff;
@@ -444,29 +445,3 @@ include '..\Authentication\connect_db.php';
 
 	}
 </style>
-<script>
-	var mode = localStorage.getItem("mode");
-	var h1 = document.getElementById("h1");
-	
-	console.log(mode);
-	if(mode=="day"){
-		localStorage.setItem("mode1", "day");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-	}
-	else if(mode=="night"){
-		document.body.style.backgroundColor = "#191970";
-		h1.style.color = "white";
-		
-		
-		localStorage.setItem("mode1", "night");
-        var mode1 = localStorage.getItem("mode1");
-        console.log(mode1);
-		var x = document.getElementsByClassName('button');
-        for (var i = 0; i < x.length; i++) {
-            x[i].style.color = "white";
-			x[i].style.borderColor = "white";
-        }
-	} 
-	
-</script>

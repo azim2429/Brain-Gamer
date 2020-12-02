@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include "..\Common\preloader.php" ?>
 <head>
     <title>Flick Master</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
 </head>
 
-<body>
+<body style="background: white;">
 <?php include "..\Common\av_bar.php" ?>
 
 <a class="a_game" href="../Game/index.php">
@@ -55,7 +55,7 @@
                 <div style="color: black;font-weight:bold;font-size:24px">Points:<input id="points"  name="points" style="background: none;border:none;font-size:3vh;width:5%"></div>
                 
                 <div style="color: black;font-weight:bold;font-size:24px">Accuracy:<input id="accu" name="accuracy" style="background: none;border:none;font-size:3vh;width:6%">%</div>
-                <div>Score:</div>
+                
                 
                 <button name="continue" style="color: black;" id='backBtn'>Continue</button>
             </form>
@@ -292,7 +292,7 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
     var myArrow = document.querySelector(arrow);
     var myTimer = document.querySelector(timer);
     var myTime = document.querySelector(timer);
-    var gameTime = 10;
+    var gameTime = 20;
     var time = gameTime;
     myTimer.innerHTML = "TIME: " + time;
     
@@ -361,7 +361,7 @@ function FMgame(timer, up, down, left, right, gameOver, retryBtn, backBtn,arrow)
             myGameOver.style.display = "block";
             points = parseInt(correct * 2.5);
             document.getElementById("points").value = points;
-            myScore.innerHTML = "Scores:    " + correct;
+            
             
             if (correct + incorrect == 0)
             document.getElementById("accu").value = '0';
@@ -419,29 +419,4 @@ function next(){
     h_play.style.display = "none";
 }
 
-</script>
-<script>
-  var mode = localStorage.getItem("mode");
-  console.log(mode);
-
-  if (mode == "day") {
-    localStorage.setItem("mode1", "day");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
-  if (mode == "night") {
-    
-    document.body.style.backgroundColor = "#191970";
-    var h1 = document.getElementById('h1');
-    var p1 = document.getElementById('p1');
-    var p = document.getElementById('p');
-    var fa = document.getElementById('fa');
-    h1.style.color = "white";
-    p1.style.color = "white";
-    p.style.color = "white";
-    fa.style.color = "white";
-    localStorage.setItem("mode1", "night");
-    var mode1 = localStorage.getItem("mode1");
-    console.log(mode1);
-  }
 </script>

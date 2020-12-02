@@ -9,29 +9,8 @@
     overflow: hidden;
 }
 
-#start_button {
-    position: absolute;
-    top:00px;
-    left: 20px;
-    width: 200px;
-    height: 50px;
-    border: 2px solid;
-        background: white;
-        padding: 10px 10px;
-        font-size: 20px;
-        cursor: pointer;
-        border-color: red;
-        color: red;
-        border-radius: 1rem;
-    margin: 2rem;
-  }
 
-  .button:hover {
-    background: red;
-        color: white;
-        border-color: red;
-        transition: 0.2s ease-in;
-  }
+
   .play {
     position: absolute;
     top: 18%;

@@ -118,7 +118,7 @@ $(function() {
         score_counter++;
         high_score = score_counter/100;
         document.getElementById('accuracy').value = high_score;
-        document.getElementById('points').value = parseInt(high_score*2.5, 10);
+        document.getElementById('points').value = parseInt(high_score*3.5, 10);
         if (score_counter % 20 == 0) {
             score.text(parseInt(score.text())+1);
             

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<?php include "..\Common\preloader.php" ?>
 <head>
   <meta charset="UTF-8">
   <title>Simon Game</title>
@@ -26,6 +26,8 @@
 <body>
 <?php include "..\Common\icon.php" ?>
     <?php include "..\Common\av_bar.php" ?>
+    <a class="a_game" href="../Game/index.php">
+        <i style="position:absolute;top:16%;left:10%;color:black" id="fa" class="fa fa-long-arrow-left">All Games</i></a>
   <div id="outer-circle">
     <div id="topleft"></div>
     <div id="topright"></div>
@@ -78,6 +80,9 @@
 </html>
 
 <style>
+  body{
+    background: #58D68D;
+  }
   #restart {
     display: block;
     
@@ -262,5 +267,8 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+a{
+    font-size: 20px;
 }
 </style>
