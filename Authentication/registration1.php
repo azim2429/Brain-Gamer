@@ -451,7 +451,7 @@ if (isset($_SESSION['fname'])) {
           $('#all_time').fadeIn(500);
         }, 200);
       });
-      document.getElementById('photo').style.display = 'block';
+      document.getElementById('done').style.display = 'block';
       document.getElementById('login').style.display = "none";
     }
   }
@@ -477,7 +477,7 @@ if (isset($_SESSION['fname'])) {
       }, 200);
     });
     document.getElementById('photo').style.display = 'none';
-    document.getElementById('done').style.display = 'block';
+    document.getElementById('done').style.display = 'none';
   }
 
   function readURL(input) {

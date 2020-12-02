@@ -65,7 +65,7 @@
           <input type="date" min="1979-12-31" max="2010-12-31" name="bdate" id="birth_date" value="<?php echo $row['bdate'] ?>">
           <span id="bdates" style="color:red; font-weight:bold;"></span>
           <div class="button">
-            <a onclick="return p_validation()">Next</a>
+            <a style="color: white;" onclick="return p_validation()">Next</a>
           </div>
 
 
@@ -300,7 +300,7 @@
 
 
           <div class="button">
-            <a onclick="return a_validation()">Next</a>
+            <a style="color: white;" onclick="return a_validation()">Next</a>
           </div>
         </div>
         <!-- </form> -->
@@ -424,7 +424,7 @@
 
     document.getElementById('a_details').style.display = "none";
     document.getElementById('login').style.display = "none";
-    document.getElementById('photo').style.display = "block";
+    document.getElementById('done').style.display = "block";
 
 
 
