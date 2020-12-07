@@ -68,19 +68,6 @@
   display: none;
   color:#333;
 } */
-::-webkit-scrollbar {
-    width: 4px;
-    height: 15px;
-}
-
-::-webkit-scrollbar-track-piece  {
-    background-color:#bdc3c7;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-    height: 30px;
-    background-color: #e74c3c;
-}
     
     
     
@@ -180,7 +167,7 @@
         transform: rotate(90deg);
     }
     .contain{
-      width: 65%;
+      width: 60%;
      margin-left: 15rem;
       position: absolute;
       bottom: 0;
@@ -228,7 +215,7 @@
 }
  
 .content {
-  width: 83%;
+  width: 72.5%;
   position: absolute;
   top:52rem;
   margin-left: 25rem;
@@ -478,7 +465,7 @@ while ($g6_row = mysqli_fetch_array($g6_res)) {
     <div  class="report-overview-module"></div>
 </div>
 <h1 id="h2" style="color:black;text-align:center;margin-left:17rem">Overall Accuracy</h1>
-<hr style="margin-bottom: 22rem;width:250vh;color:green">
+<hr style="margin-bottom: 22rem;width:25vh;color:green">
 <div  class="contain">
   
   <div  class="border">

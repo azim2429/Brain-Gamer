@@ -109,7 +109,7 @@ capture the player's attention for the entire period of the game.
             <div class="contact">
                 <h1 style="font-family: arial;">Contact Us</h1><br>
 
-                <form id="contact-form" onsubmit="return validation()">
+                <form id="contact-form" onsubmit="return validation()" action="mailto:abdulazim0402@gmail.com" method="post" enctype="text/plain">
 
                     <p>
                         <label style="font-family: arial;">Company</label>
@@ -280,19 +280,7 @@ capture the player's attention for the entire period of the game.
 
     }
 
-    ::-webkit-scrollbar {
-        width: 4px;
-        height: 15px;
-    }
-
-    ::-webkit-scrollbar-track-piece {
-        background-color: #bdc3c7;
-    }
-
-    ::-webkit-scrollbar-thumb:vertical {
-        height: 30px;
-        background-color: #e74c3c;
-    }
+    
 
     .leader {
         float: right;

@@ -29,7 +29,7 @@
                             <a href="https://www.facebook.com/profile.php?id=100008503173596"><i class="fa fa-facebook" style="color:black"></i></a>
                             <a href="https://github.com/azim2429"><i class="fa fa-github" style="color:black"></i></a>
                         </div>
-                        <p><button class="button">Contact</button></p><br>
+                        <p><a href="mailto:abdulazim0402@gmail.com"><button class="button">Contact</button></a></p><br>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                             <a href="https://www.facebook.com/akhil.wilson.5"><i class="fa fa-facebook" style="color:black"></i></a>
                             <a href="https://github.com/akhilwilson57"><i class="fa fa-github" style="color:black"></i></a>
                         </div>
-                        <p><button class="button">Contact</button></p><br>
+                        <p><a href="mailto:abdulazim0402@gmail.com"><button class="button">Contact</button></a></p><br>
                     </div>
                 </div>
             </div>
@@ -67,21 +67,42 @@
                             <a href="#"><i class="fa fa-facebook" style="color:black"></i></a>
                             <a href="https://github.com/bryanphil"><i class="fa fa-github" style="color:black"></i></a>
                         </div>
-                        <p><button class="button">Contact</button></p><br>
+                        <p><a href="mailto:abdulazim0402@gmail.com"><button class="button">Contact</button></a></p><br>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="about-section">
+        <div id="demo" class="about-section">
             <h1>OUR MISSION</h1><br>
             <i>"To make your free time more productive"</i>
             <p>Keeping the brain active is an important aspect of brain health. Challenging mental activities stimulate the formation of new nerve cells connections and may encourage new cell generation.Maintaining a healthy brain will help your mind stay clear and active, so that you can continue to work, rest and play</p>
+           <br><br>
+            <button onclick="loadDoc()" class="button">More Info</button>
         </div>
     </div>
 </body>
 
 </html>
+<script>
+function loadDoc() {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "about_us.txt", true);
+  xhttp.send();
+}
+</script>
 <style>
         body {
             font-family: Arial, Helvetica, sans-serif;

@@ -36,14 +36,15 @@
       <tr>
       <?php
     include '..\Authentication\connect_db.php';
+    $sr = 0;
     $s_query = "select sum(points) as points,uname from user_stats group by gamer_id order by points DESC";
 		$s_res = mysqli_query($conn,$s_query);
 		while ($s_row = mysqli_fetch_array($s_res)) {
       $uname = $s_row['uname'];
       $points = $s_row['points'];
-    
+       $sr++;
       ?>
-       <td class="rank">1</td>
+       <td class="rank"><?php echo $sr ?></td>
         <td class="name"><?php echo $uname?></td>
         
         <td class="sp"><?php echo $points?></td>

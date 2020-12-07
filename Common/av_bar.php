@@ -22,6 +22,7 @@ if (isset($_REQUEST['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="..\Images\circle-cropped.png" />
     <title>Home Page</title>
 </head>
 
@@ -85,6 +86,19 @@ if (isset($_REQUEST['logout'])) {
     });
 </script>
 <style>
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 15px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: black;
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        height: 30px;
+        background-color: #61DAFB;
+    }
     * {
         margin: 0;
         padding: 0;
